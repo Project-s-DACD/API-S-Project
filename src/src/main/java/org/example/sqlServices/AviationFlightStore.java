@@ -1,21 +1,30 @@
-package org.example.data;
-import org.example.flightapi.Flight;
-
+package org.example.sqlServices;
+import org.example.apiServices.Flight;
 import java.io.File;
 import java.sql.*;
 import java.util.List;
 
-public class AviationCreateTable extends CreateTable<Flight> {
+public class AviationFlightStore implements DataStore<Flight> {
 
     private static final String insertFlightSql = "INSERT INTO flights(flight_date, flight_status, departure_airport, arrival_airport, airline, flight_number) VALUES(?, ?, ?, ?, ?, ?)";
+    private final File file;
 
-    public AviationCreateTable(File file) throws SQLException {
-        super(file);
+    public AviationFlightStore(File file) throws SQLException {
+        this.file = file;
+        createDatabase();
     }
 
     @Override
+    public void insert(List<Flight> flights) throws SQLException {
+        if (flights.isEmpty()) {
+            System.out.println("No hay vuelos disponibles para insertar.");
+            return;
+        }
+        saveFlightsToDatabase(flights);
+    }
+
     protected void createDatabase() throws SQLException {
-        try (Connection conn = DriverManager.getConnection(dbUrl())) {
+        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + file.getAbsolutePath())) {
             if (conn != null) {
                 String createTableSQL = "CREATE TABLE IF NOT EXISTS flights (" +
                         "id INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -32,9 +41,8 @@ public class AviationCreateTable extends CreateTable<Flight> {
         }
     }
 
-    @Override
     protected void saveFlightsToDatabase(List<Flight> flights) throws SQLException {
-        try (Connection conn = DriverManager.getConnection(dbUrl());
+        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + file.getAbsolutePath());
              PreparedStatement pstmt = conn.prepareStatement(insertFlightSql)) {
 
             for (Flight flight : flights) {
@@ -50,5 +58,4 @@ public class AviationCreateTable extends CreateTable<Flight> {
             System.out.println("Vuelos guardados en la base de datos.");
         }
     }
-
 }

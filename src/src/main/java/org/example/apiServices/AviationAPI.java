@@ -1,6 +1,5 @@
-package org.example.flightapi;
+package org.example.apiServices;
 
-import org.example.api.FetchDataFromApi;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -8,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AviationAPI extends FetchDataFromApi {
+public class AviationAPI extends AviationProvider {
     private final String apiKey;
     private final List<Flight> flights = new ArrayList<>();
 
@@ -16,22 +15,22 @@ public class AviationAPI extends FetchDataFromApi {
         this.apiKey = apiKey;
     }
 
+    @Override
     public AviationAPI fetch() throws IOException {
-        System.out.println("Consultando datos de vuelos...");
-        String responseBody = fetchData();
+        String responseBody = fetchData(getUrl());
         if (responseBody != null) {
             process(new JSONObject(responseBody));
         }
         return this;
     }
 
+    @Override
     public List<Flight> flights() {
         return flights;
     }
 
     private void process(JSONObject jsonResponse) {
         if (!jsonResponse.has("data")) {
-            System.out.println("No se encontraron datos en la respuesta.");
             return;
         }
 
@@ -51,8 +50,7 @@ public class AviationAPI extends FetchDataFromApi {
         }
     }
 
-    @Override
-    protected String urlLink() {
+    private String getUrl() {
         return "http://api.aviationstack.com/v1/flights?access_key=" + apiKey + "&arr_icao=GCLP&flight_status=landed";
     }
 }
