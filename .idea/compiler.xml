@@ -6,10 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="IndicatorsAPI" />
+        <module name="FlightsAPI" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="IndicatorsAPI" target="23" />
-    </bytecodeTargetLevel>
   </component>
 </project>

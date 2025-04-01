@@ -1,5 +1,5 @@
-package org.example.data;
-import org.example.flightapi.Flight;
+package org.main.data;
+import org.main.flightapi.Flight;
 
 import java.io.File;
 import java.sql.*;

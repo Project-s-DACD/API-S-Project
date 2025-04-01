@@ -1,4 +1,4 @@
-package org.example.flightapi;
+package org.main.flightapi;
 
 public class Flight {
     private String flight_date;

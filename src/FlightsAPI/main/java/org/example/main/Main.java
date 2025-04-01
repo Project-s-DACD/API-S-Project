@@ -1,7 +1,7 @@
-package org.example.main;
+package org.main.main;
 
-import org.example.data.AviationCreateTable;
-import org.example.flightapi.AviationAPI;
+import org.main.data.AviationCreateTable;
+import org.main.flightapi.AviationAPI;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;

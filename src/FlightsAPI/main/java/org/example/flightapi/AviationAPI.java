@@ -1,6 +1,6 @@
-package org.example.flightapi;
+package org.main.flightapi;
 
-import org.example.api.FetchDataFromApi;
+import org.main.api.FetchDataFromApi;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
