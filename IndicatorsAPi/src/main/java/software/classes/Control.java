@@ -1,7 +1,4 @@
-package org.classes;
-
-import org.classes.IndicatorsSet;
-import org.classes.IndicatorProvider;
+package software.classes;
 
 import java.util.List;
 

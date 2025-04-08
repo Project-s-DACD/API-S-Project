@@ -1,4 +1,4 @@
-package org.classes;
+package software.classes;
 
 import java.util.List;
 

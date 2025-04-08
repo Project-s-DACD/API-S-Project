@@ -1,6 +1,4 @@
-package org.classes;
-
-import org.classes.Indicator;
+package software.classes;
 
 import java.util.List;
 

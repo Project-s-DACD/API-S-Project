@@ -1,4 +1,4 @@
-package org.classes;
+package software.classes;
 
 
 public class Indicator {

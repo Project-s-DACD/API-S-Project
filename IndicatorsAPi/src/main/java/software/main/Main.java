@@ -1,6 +1,9 @@
-package org.main;
+package software.main;
 
 import org.classes.*;
+import software.classes.GobCanariasAPIProvider;
+import software.classes.Indicator;
+import software.classes.IndicatorProvider;
 
 import java.util.List;
 
@@ -14,6 +17,4 @@ public class Main {
             System.out.println("- " + indicator.getName() + " | 🔗 " + indicator.getUrl());
         }
     }
-
-
 }

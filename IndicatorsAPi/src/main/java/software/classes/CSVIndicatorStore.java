@@ -1,4 +1,4 @@
-package org.classes;
+package software.classes;
 
 import java.io.FileWriter;
 import java.io.IOException;
