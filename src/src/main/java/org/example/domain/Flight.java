@@ -1,4 +1,4 @@
-package org.example.apiServices;
+package org.example.domain;
 
 public class Flight {
     private String flight_date;
@@ -9,7 +9,11 @@ public class Flight {
     private String flight_number;
     private int id;
 
-    public Flight(String flight_date, String flight_status, String departure_airport, String arrival_airport, String airline, String flight_number, int id) {
+    public Flight() {
+    }
+
+    public Flight(String flight_date, String flight_status, String departure_airport,
+                  String arrival_airport, String airline, String flight_number, int id) {
         this.flight_date = flight_date;
         this.flight_status = flight_status;
         this.departure_airport = departure_airport;
@@ -20,7 +24,6 @@ public class Flight {
     }
 
     public String getFlight_date() {
-
         return flight_date;
     }
 
@@ -47,4 +50,5 @@ public class Flight {
     public int getId() {
         return id;
     }
+
 }

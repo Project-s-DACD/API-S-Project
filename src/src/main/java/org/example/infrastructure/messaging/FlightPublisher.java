@@ -1,8 +1,8 @@
-package org.example.messaging;
-
+package org.example.infrastructure.messaging;
 import com.google.gson.Gson;
 import org.apache.activemq.ActiveMQConnectionFactory;
-import org.example.apiServices.Flight;
+import org.example.domain.Flight;
+import com.google.gson.JsonObject;
 
 
 import javax.jms.*;
@@ -12,7 +12,7 @@ public class FlightPublisher {
     private static final String topicName = "prediction.Flight";
     private final Gson gson = new Gson();
 
-    public void publish(Flight flight) throws JMSException {
+    public void publishEventInBroker(Flight flight) throws JMSException {
         ConnectionFactory factory = new ActiveMQConnectionFactory(brokerUrl);
         Connection connection = factory.createConnection();
         try {
@@ -21,17 +21,26 @@ public class FlightPublisher {
             Destination topic = session.createTopic(topicName);
             MessageProducer producer = session.createProducer(topic);
 
-            String json = gson.toJson(flight);
-            TextMessage message = session.createTextMessage(json);
+            JsonObject event = new JsonObject();
+            event.addProperty("ts", java.time.Instant.now().toString());
+            event.addProperty("ss", "feederA");
+            event.add("data", gson.toJsonTree(flight));
+
+            String eventString = event.toString();
+            TextMessage message = session.createTextMessage(eventString);
             producer.send(message);
 
-            System.out.println("Evento publicado: " + json);
+            System.out.println("Published event: " + eventString);
 
             producer.close();
             session.close();
+        } catch (RuntimeException e) {
+            throw new JMSException("Error building the Json: " + e.getMessage());
         } finally {
             connection.close();
         }
     }
+
+
 
 }

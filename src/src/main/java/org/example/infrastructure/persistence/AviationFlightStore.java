@@ -1,5 +1,5 @@
-package org.example.sqlServices;
-import org.example.apiServices.Flight;
+package org.example.infrastructure.persistence;
+import org.example.domain.Flight;
 import java.io.File;
 import java.sql.*;
 import java.util.List;
@@ -15,9 +15,9 @@ public class AviationFlightStore implements DataStore<Flight> {
     }
 
     @Override
-    public void insert(List<Flight> flights) throws SQLException {
+    public void insertFlightsIntoDatabase(List<Flight> flights) throws SQLException {
         if (flights.isEmpty()) {
-            System.out.println("No hay vuelos disponibles para insertar.");
+            System.out.println("Not flights available.");
             return;
         }
         saveFlightsToDatabase(flights);
@@ -36,7 +36,7 @@ public class AviationFlightStore implements DataStore<Flight> {
                         "flight_number TEXT" +
                         ");";
                 conn.createStatement().execute(createTableSQL);
-                System.out.println("Base de datos creada correctamente.");
+                System.out.println("Data base correctly created.");
             }
         }
     }
@@ -55,7 +55,7 @@ public class AviationFlightStore implements DataStore<Flight> {
                 pstmt.addBatch();
             }
             pstmt.executeBatch();
-            System.out.println("Vuelos guardados en la base de datos.");
+            System.out.println("Flights saved in data base.");
         }
     }
 }

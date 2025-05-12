@@ -1,5 +1,6 @@
-package org.example.apiServices;
+package org.example.infrastructure.apiServices;
 
+import org.example.domain.Flight;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -16,10 +17,10 @@ public class AviationAPI extends AviationProvider {
     }
 
     @Override
-    public AviationAPI fetch() throws IOException {
-        String responseBody = fetchData(getUrl());
+    public AviationAPI fetchDataFromApi() throws IOException {
+        String responseBody = fetchData(getUrlFromApi());
         if (responseBody != null) {
-            process(new JSONObject(responseBody));
+            processInformationFromApiChangingToFlight(new JSONObject(responseBody));
         }
         return this;
     }
@@ -29,7 +30,7 @@ public class AviationAPI extends AviationProvider {
         return flights;
     }
 
-    private void process(JSONObject jsonResponse) {
+    private void processInformationFromApiChangingToFlight(JSONObject jsonResponse) {
         if (!jsonResponse.has("data")) {
             return;
         }
@@ -50,7 +51,7 @@ public class AviationAPI extends AviationProvider {
         }
     }
 
-    private String getUrl() {
+    private String getUrlFromApi() {
         return "http://api.aviationstack.com/v1/flights?access_key=" + apiKey + "&arr_icao=GCLP&flight_status=landed";
     }
 }

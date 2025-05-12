@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="feederA" />
         <module name="eventStoreBuilder" />
+        <module name="business-unit" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

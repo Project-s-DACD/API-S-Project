@@ -17,45 +17,53 @@ public class FlightSubscriber {
     private static final String topicName = "prediction.Flight";
     private static final String basePath = "eventstore";
 
-    public void start() throws JMSException {
+    public void startConnectionToBroker() throws JMSException {
         ConnectionFactory factory = new ActiveMQConnectionFactory(brokerUrl);
         Connection connection = factory.createConnection();
-        connection.setClientID("xxx");
+        connection.setClientID("event-store-builder");
         connection.start();
+
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
         Topic topic = session.createTopic(topicName);
-
-        MessageConsumer consumer = session.createDurableSubscriber(topic, "yyy");
+        MessageConsumer consumer = session.createDurableSubscriber(topic, "flight-store-subscription");
 
         consumer.setMessageListener(message -> {
             if (message instanceof TextMessage) {
                 try {
                     String json = ((TextMessage) message).getText();
-                    saveEvent(json);
-                    System.out.println("Evento recibido y almacenado.");
-                } catch (Exception e) {
-                    System.err.println("Error al procesar mensaje: " + e.getMessage());
+                    saveEventFromTopic(json);
+                } catch (EventStoreException | JMSException e) {
+                    System.err.println("Error while processing the message: " + e.getMessage());
+                    e.printStackTrace();
                 }
             }
         });
 
-        System.out.println("Suscriptor escuchando el topic: " + topicName);
+        System.out.println("Subscriber connected to topic: " + topicName);
     }
 
-    private void saveEvent(String json) throws IOException {
-        JsonObject obj = JsonParser.parseString(json).getAsJsonObject();
+    private void saveEventFromTopic(String json) throws EventStoreException {
+        try {
+            JsonObject obj = JsonParser.parseString(json).getAsJsonObject();
 
-        String flightDate = obj.get("flight_date").getAsString();
-        String ss = obj.has("ss") ? obj.get("ss").getAsString() : "feederA";
-        String datePart = LocalDate.parse(flightDate).format(DateTimeFormatter.BASIC_ISO_DATE);
+            String ss = obj.has("ss") ? obj.get("ss").getAsString() : "unknown";
 
-        File dir = new File(basePath + "/" + topicName + "/" + ss);
-        dir.mkdirs();
+            JsonObject data = obj.getAsJsonObject("data");
+            String flightDate = data.get("flight_date").getAsString();
+            String datePart = LocalDate.parse(flightDate).format(DateTimeFormatter.BASIC_ISO_DATE);
 
-        File file = new File(dir, datePart + ".events");
+            File dir = new File(basePath + "/" + topicName + "/" + ss);
+            if (!dir.exists() && !dir.mkdirs()) {
+                throw new EventStoreException("No se pudo crear el directorio para guardar el evento", null);
+            }
 
-        try (FileWriter writer = new FileWriter(file, true)) {
-            writer.write(json + System.lineSeparator());
+            File file = new File(dir, datePart + ".events");
+            try (FileWriter writer = new FileWriter(file, true)) {
+                writer.write(json + System.lineSeparator());
+                System.out.println("Event saved in: " + file.getPath());
+            }
+        } catch (IOException | NullPointerException e) {
+            throw new EventStoreException("Error while processing and saving the event", e);
         }
     }
 }

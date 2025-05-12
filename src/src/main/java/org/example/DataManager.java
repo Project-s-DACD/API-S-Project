@@ -1,9 +1,9 @@
-package org.example.control;
+package org.example;
 
-import org.example.messaging.FlightPublisher;
-import org.example.sqlServices.DataStore;
-import org.example.apiServices.DataProvider;
-import org.example.apiServices.Flight;
+import org.example.infrastructure.messaging.FlightPublisher;
+import org.example.infrastructure.persistence.DataStore;
+import org.example.infrastructure.apiServices.DataProvider;
+import org.example.domain.Flight;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -21,24 +21,24 @@ public class DataManager {
 
     public void processData() {
         try {
-            apiProvider.fetch();
+            apiProvider.fetchDataFromApi();
             List<Flight> vuelos = apiProvider.flights();
-            dataStore.insert(vuelos);
-            System.out.println("Vuelos procesados y almacenados exitosamente.");
+            dataStore.insertFlightsIntoDatabase(vuelos);
+            System.out.println("Flights correctly saved.");
 
             FlightPublisher publisher = new FlightPublisher();
             for (Flight vuelo : vuelos) {
-                publisher.publish(vuelo);
+                publisher.publishEventInBroker(vuelo);
             }
 
         } catch (IOException e) {
-            System.err.println("ERROR al obtener datos de la API: " + e.getMessage());
+            System.err.println("Error while fetching the data from api: " + e.getMessage());
         } catch (SQLException e) {
-            System.err.println("ERROR en la base de datos: " + e.getMessage());
+            System.err.println("Error in the data base: " + e.getMessage());
         } catch (JMSException e) {
-            System.err.println("ERROR al publicar evento en ActiveMQ: " + e.getMessage());
+            System.err.println("Error while publishing the event in ActiveMQ: " + e.getMessage());
         } catch (Exception e) {
-            System.err.println("ERROR inesperado: " + e.getMessage());
+            System.err.println("Unexpected error: " + e.getMessage());
             e.printStackTrace();
         }
     }

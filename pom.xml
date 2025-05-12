@@ -13,6 +13,8 @@
     <modules>
         <module>src</module>
         <module>eventStoreBuilder</module>
+        <module>business-unit</module>
+
     </modules>
 
 </project>
