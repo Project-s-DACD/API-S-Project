@@ -1,4 +1,4 @@
-package org.example.infrastructure.persistence;
+package org.example.infrastructure.ports;
 import java.sql.SQLException;
 import java.util.List;
 

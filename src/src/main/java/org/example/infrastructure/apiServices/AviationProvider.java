@@ -3,6 +3,7 @@ package org.example.infrastructure.apiServices;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import org.example.infrastructure.ports.DataProvider;
 
 import java.io.IOException;
 

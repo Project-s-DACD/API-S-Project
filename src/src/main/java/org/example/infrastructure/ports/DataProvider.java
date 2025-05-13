@@ -1,4 +1,4 @@
-package org.example.infrastructure.apiServices;
+package org.example.infrastructure.ports;
 
 import org.example.domain.Flight;
 

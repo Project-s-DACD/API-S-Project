@@ -1,4 +1,3 @@
-// EventStoreException.java
 package org.example.subscriber;
 
 public class EventStoreException extends Exception {

@@ -1,8 +1,8 @@
 package org.example;
 
 import org.example.infrastructure.messaging.FlightPublisher;
-import org.example.infrastructure.persistence.DataStore;
-import org.example.infrastructure.apiServices.DataProvider;
+import org.example.infrastructure.ports.DataStore;
+import org.example.infrastructure.ports.DataProvider;
 import org.example.domain.Flight;
 
 import java.io.IOException;

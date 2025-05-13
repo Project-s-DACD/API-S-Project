@@ -12,7 +12,7 @@ public class BusinessCli {
     public void startMenuCli() {
         String opcion;
         do {
-            System.out.println("/n Menú de Análisis de Vuelos");
+            System.out.println("\n -> Menú de Análisis de Vuelos");
             System.out.println("1. Show Airpor´s Wordcloud");
             System.out.println("2. Show airlines");
             System.out.println("3. exit");
@@ -20,8 +20,8 @@ public class BusinessCli {
             opcion = scanner.nextLine();
 
             switch (opcion) {
-                case "1" -> showGraph("C:/Users/agust/OneDrive/Escritorio/Uni/2º año/DAPC/Api´s project/business-unit/graficos/grafico_test2.png");
-                case "2" -> showGraph("C:/Users/agust/OneDrive/Escritorio/Uni/2º año/DAPC/Api´s project/business-unit/graficos/grafico_test.png");
+                case "1" -> showGraph("business-unit/graficos/grafico_test2.png");
+                case "2" -> showGraph("business-unit/graficos/grafico_test.png");
                 case "3" -> System.out.println("Saliendo del CLI...");
                 default -> System.out.println("Opción no válida. Intentá de nuevo.");
             }

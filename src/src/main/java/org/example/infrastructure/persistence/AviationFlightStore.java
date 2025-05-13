@@ -1,12 +1,19 @@
 package org.example.infrastructure.persistence;
+
 import org.example.domain.Flight;
+import org.example.infrastructure.ports.DataStore;
+
 import java.io.File;
 import java.sql.*;
 import java.util.List;
 
 public class AviationFlightStore implements DataStore<Flight> {
 
-    private static final String insertFlightSql = "INSERT INTO flights(flight_date, flight_status, departure_airport, arrival_airport, airline, flight_number) VALUES(?, ?, ?, ?, ?, ?)";
+
+    private static final String insertFlightSql = "INSERT OR IGNORE INTO flights(" +
+            "flight_date, flight_status, departure_airport, arrival_airport, airline, flight_number" +
+            ") VALUES(?, ?, ?, ?, ?, ?)";
+
     private final File file;
 
     public AviationFlightStore(File file) throws SQLException {
@@ -17,11 +24,12 @@ public class AviationFlightStore implements DataStore<Flight> {
     @Override
     public void insertFlightsIntoDatabase(List<Flight> flights) throws SQLException {
         if (flights.isEmpty()) {
-            System.out.println("Not flights available.");
+            System.out.println("No hay vuelos para insertar.");
             return;
         }
         saveFlightsToDatabase(flights);
     }
+
 
     protected void createDatabase() throws SQLException {
         try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + file.getAbsolutePath())) {
@@ -33,10 +41,11 @@ public class AviationFlightStore implements DataStore<Flight> {
                         "departure_airport TEXT," +
                         "arrival_airport TEXT," +
                         "airline TEXT," +
-                        "flight_number TEXT" +
+                        "flight_number TEXT," +
+                        "UNIQUE(flight_date, flight_number, airline)" +
                         ");";
                 conn.createStatement().execute(createTableSQL);
-                System.out.println("Data base correctly created.");
+                System.out.println("Base de datos y tabla creadas correctamente.");
             }
         }
     }
@@ -54,8 +63,9 @@ public class AviationFlightStore implements DataStore<Flight> {
                 pstmt.setString(6, flight.getFlight_number());
                 pstmt.addBatch();
             }
+
             pstmt.executeBatch();
-            System.out.println("Flights saved in data base.");
+            System.out.println("Vuelos insertados en la base de datos (sin duplicados).");
         }
     }
 }
