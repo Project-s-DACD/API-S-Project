@@ -14,6 +14,7 @@
         <module>src</module>
         <module>eventStoreBuilder</module>
         <module>business-unit</module>
+        <module>business-unit/graficos</module>
 
     </modules>
 

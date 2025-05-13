@@ -6,13 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="feederA" />
-        <module name="eventStoreBuilder" />
+        <module name="graficos" />
+        <module name="AviationStackFeeder" />
         <module name="business-unit" />
+        <module name="eventStoreBuilder" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="feeder" target="1.8" />
+      <module name="feederA" target="21" />
     </bytecodeTargetLevel>
   </component>
 </project>

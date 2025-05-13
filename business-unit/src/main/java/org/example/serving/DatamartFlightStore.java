@@ -4,6 +4,7 @@ import org.example.domain.Flight;
 import org.example.infrastructure.persistence.AviationFlightStore;
 import org.example.infrastructure.ports.DataStore;
 import org.rosuda.REngine.Rserve.RConnection;
+import org.rosuda.REngine.Rserve.RserveException;
 
 import java.io.File;
 import java.sql.SQLException;
