@@ -12,6 +12,7 @@
     <bytecodeTargetLevel>
       <module name="FlightsAPI" target="23" />
       <module name="IndicatorsAPI" target="21" />
+      <module name="owmapi (1)" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

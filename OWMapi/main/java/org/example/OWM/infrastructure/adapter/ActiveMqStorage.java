@@ -1,7 +1,7 @@
 package org.example.OWM.infrastructure.adapter;
 
 
-import org.example.OWM.domain.Weather;
+import org.example.OWM.domain.LocationWeather;
 import org.example.OWM.infrastructure.ports.WeatherStorage;
 
 import javax.jms.*;
@@ -26,7 +26,7 @@ public class ActiveMqStorage implements WeatherStorage {
     }
 
     @Override
-    public void save(String city, Weather weather) {
+    public void save(String city, LocationWeather weather) {
         if (factory == null) return;
         try (Connection conn = factory.createConnection();
              Session session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE)) {

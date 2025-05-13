@@ -5,6 +5,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/OWMapi/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/OWMapi/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/API-S-Project/OWMapi/main/java" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
