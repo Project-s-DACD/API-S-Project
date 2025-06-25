@@ -1,6 +1,6 @@
 package org.example;
-import org.example.infrastructure.persistence.AviationFlightStore;
-import org.example.infrastructure.apiServices.AviationAPI;
+import org.example.infrastructure.AviationFlightStore;
+import org.example.infrastructure.AviationAPI;
 
 import java.io.File;
 import java.util.concurrent.Executors;

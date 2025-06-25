@@ -1,6 +1,6 @@
 package org.example;
 
-import org.example.infrastructure.messaging.FlightPublisher;
+import org.example.infrastructure.FlightPublisher;
 import org.example.infrastructure.ports.DataStore;
 import org.example.infrastructure.ports.DataProvider;
 import org.example.domain.Flight;

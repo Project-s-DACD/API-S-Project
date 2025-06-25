@@ -1,4 +1,4 @@
-package org.example.infrastructure.messaging;
+package org.example.infrastructure;
 import com.google.gson.Gson;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.example.domain.Flight;

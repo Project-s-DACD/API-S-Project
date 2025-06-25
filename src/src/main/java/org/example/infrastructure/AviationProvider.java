@@ -1,4 +1,4 @@
-package org.example.infrastructure.apiServices;
+package org.example.infrastructure;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

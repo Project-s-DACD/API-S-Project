@@ -1,4 +1,4 @@
-package org.example.infrastructure.apiServices;
+package org.example.infrastructure;
 
 import org.example.domain.Flight;
 import org.json.JSONArray;

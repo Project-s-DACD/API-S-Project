@@ -1,7 +1,7 @@
 package org.example.serving;
 
 import org.example.domain.Flight;
-import org.example.infrastructure.persistence.AviationFlightStore;
+import org.example.infrastructure.AviationFlightStore;
 import org.example.infrastructure.ports.DataStore;
 
 import java.io.BufferedReader;

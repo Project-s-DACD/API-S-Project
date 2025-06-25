@@ -1,4 +1,4 @@
-package org.example.infrastructure.persistence;
+package org.example.infrastructure;
 
 import org.example.domain.Flight;
 import org.example.infrastructure.ports.DataStore;
