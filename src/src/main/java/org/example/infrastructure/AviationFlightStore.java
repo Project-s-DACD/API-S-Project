@@ -11,7 +11,7 @@ public class AviationFlightStore implements DataStore<Flight> {
 
 
     private static final String insertFlightSql = "INSERT OR IGNORE INTO flights(" +
-            "flight_date, flight_status, departure_airport, arrival_airport, airline, flight_number" +
+            "flight_date, flight_status, departure_airport, arrival_airport, airline, departure_delay" +
             ") VALUES(?, ?, ?, ?, ?, ?)";
 
     private final File file;
@@ -41,8 +41,8 @@ public class AviationFlightStore implements DataStore<Flight> {
                         "departure_airport TEXT," +
                         "arrival_airport TEXT," +
                         "airline TEXT," +
-                        "flight_number TEXT," +
-                        "UNIQUE(flight_date, flight_number, airline)" +
+                        "departure_delay INTEGER,"+
+                        "UNIQUE(flight_date, airline)" +
                         ");";
                 conn.createStatement().execute(createTableSQL);
                 System.out.println("Database correctly created.");
@@ -60,7 +60,7 @@ public class AviationFlightStore implements DataStore<Flight> {
                 pstmt.setString(3, flight.getDeparture_airport());
                 pstmt.setString(4, flight.getArrival_airport());
                 pstmt.setString(5, flight.getAirline());
-                pstmt.setString(6, flight.getFlight_number());
+                pstmt.setObject(6, flight.getDeparture_delay());
                 pstmt.addBatch();
             }
 

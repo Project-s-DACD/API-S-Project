@@ -6,7 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="graficos" />
         <module name="owmapi" />
+        <module name="AviationStackFeeder" />
+        <module name="business-unit" />
+        <module name="eventStoreBuilder" />
       </profile>
     </annotationProcessing>
   </component>

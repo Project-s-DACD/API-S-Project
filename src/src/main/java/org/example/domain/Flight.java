@@ -6,8 +6,9 @@ public class Flight {
     private String departure_airport;
     private String arrival_airport;
     private String airline;
-    private String flight_number;
     private int id;
+    private Integer departure_delay;
+
 
     public Flight() {
     }
@@ -19,8 +20,9 @@ public class Flight {
         this.departure_airport = departure_airport;
         this.arrival_airport = arrival_airport;
         this.airline = airline;
-        this.flight_number = flight_number;
         this.id = id;
+        this.departure_delay = departure_delay;
+
     }
 
     public String getFlight_date() {
@@ -43,12 +45,13 @@ public class Flight {
         return airline;
     }
 
-    public String getFlight_number() {
-        return flight_number;
-    }
 
     public int getId() {
         return id;
+    }
+
+    public Integer getDeparture_delay() {
+        return departure_delay;
     }
 
 }
