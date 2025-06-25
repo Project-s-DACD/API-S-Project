@@ -6,8 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+<<<<<<< HEAD:OpenWeatherMapFeeder/.idea/compiler.xml
         <module name="weather-consumer" />
+=======
+        <module name="graficos" />
+        <module name="AviationStackFeeder" />
+        <module name="business-unit" />
+        <module name="eventStoreBuilder" />
+>>>>>>> developer-Agus:.idea/compiler.xml
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="feederA" target="21" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,0 +1,67 @@
+package org.example.serving;
+
+import org.example.domain.Flight;
+import org.example.infrastructure.AviationFlightStore;
+import org.example.infrastructure.ports.DataStore;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.InputStreamReader;
+import java.sql.SQLException;
+
+public class DatamartFlightStore extends AviationFlightStore implements DataStore<Flight> {
+    public DatamartFlightStore(File file) throws SQLException {
+        super(file);
+    }
+
+
+    public void executeScriptWithProcessBuilder() {
+        try {
+
+            String rutaScript = "C:/Users/agust/OneDrive/Escritorio/Uni/2º año/DAPC/Api´s project/business-unit/graficos/generarGraficos.R";
+
+
+            ProcessBuilder pb = new ProcessBuilder(
+                    "C:\\PROGRA~1\\R\\R-44~1.1\\bin\\x64\\Rscript.exe",
+                    rutaScript
+            );
+
+            pb.redirectErrorStream(true);
+            Process process = pb.start();
+
+            new BufferedReader(new InputStreamReader(process.getInputStream()))
+                    .lines()
+                    .forEach(System.out::println);
+
+            int exitCode = process.waitFor();
+            if (exitCode == 0) {
+                System.out.println("Script R ejecutado correctamente.");
+            } else {
+                System.err.println("El script R finalizó con código: " + exitCode);
+            }
+
+        } catch (Exception e) {
+            System.err.println("No se pudo ejecutar Rscript: " + e.getMessage());
+        }
+    }
+
+
+
+    @Override
+    public void insertFlightsIntoDatabase(java.util.List<Flight> flights) throws SQLException {
+        java.util.List<Flight> validos = flights.stream()
+                .filter(f -> f != null && f.getFlight_date() != null)
+                .toList();
+
+        if (validos.isEmpty()) {
+            System.out.println("There are not flights to save.");
+            return;
+        }
+
+        saveFlightsToDatabase(validos);
+        executeScriptWithProcessBuilder();
+
+
+    }
+
+}
