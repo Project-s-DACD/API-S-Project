@@ -4,29 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bdcfcd7-dc1f-4138-836d-5a4d5705597d" name="Changes" comment="Checking classes  V 3.2.1">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+    <list default="true" id="1bdcfcd7-dc1f-4138-836d-5a4d5705597d" name="Changes" comment="Problemas solucionados y columna delay  V 3.2.3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/graficos/grafico_test2.png" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/graficos/grafico_test2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/business-unit/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/business-unit/target/classes/org/example/BusinessMain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/business-unit/target/classes/org/example/batch/EventLoader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/business-unit/target/classes/org/example/batch/FileEventLoader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/business-unit/target/classes/org/example/serving/BusinessCli.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/business-unit/target/classes/org/example/serving/DatamartFlightStore.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/business-unit/target/classes/org/example/speed/BusinessSubscriber.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flights.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/main/java/org/example/domain/Flight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/org/example/domain/Flight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/main/java/org/example/infrastructure/AviationFlightStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/org/example/infrastructure/AviationFlightStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/DataManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/org/example/DataManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/org/example/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/domain/Flight.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/org/example/domain/Flight.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/apiServices/AviationAPI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/apiServices/AviationProvider.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/messaging/FlightPublisher.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/persistence/AviationFlightStore.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventStoreBuilder/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eventStoreBuilder/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventstore/prediction.Flight/AviationStackFeeder/20250625.events" beforeDir="false" afterPath="$PROJECT_DIR$/eventstore/prediction.Flight/AviationStackFeeder/20250625.events" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flights.db" beforeDir="false" afterPath="$PROJECT_DIR$/flights.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,27 +67,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.AviationAPI.executor": "Run",
-    "Application.BusinessMain.executor": "Run",
-    "Application.EuroStatAPI.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.MainConMiApiKey.executor": "Run",
-    "Application.SubscriberMain.executor": "Run",
-    "Application.ViewDatabase.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/agust/OneDrive/Escritorio/Uni/2º año/DAPC/Api´s project",
-    "onboarding.tips.debug.path": "C:/Users/agust/OneDrive/Escritorio/Uni/2º año/DAPC/Api´s project/business-unit/graficos/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.AviationAPI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.BusinessMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.EuroStatAPI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainConMiApiKey.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SubscriberMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ViewDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/agust/OneDrive/Escritorio/Uni/2º año/DAPC/Api´s project&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/agust/OneDrive/Escritorio/Uni/2º año/DAPC/Api´s project/business-unit/graficos/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\agust\OneDrive\Escritorio\Uni\2º año\DAPC\Api´s project" />
@@ -115,11 +99,11 @@
       <recent name="C:\Users\agust\OneDrive\Escritorio\Uni\2º año\DAPC\Api´s project\src\src\main\java\org\example\domain" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainConMiApiKey">
+  <component name="RunManager" selected="Application.BusinessMain">
     <configuration name="BusinessMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.BusinessMain" />
       <module name="business-unit" />
-      <option name="PROGRAM_PARAMETERS" value="&quot;C:\Users\agust\OneDrive\Escritorio\Uni\2º año\DAPC\Api´s project\eventstore\prediction.Flight\feederA&quot; " />
+      <option name="PROGRAM_PARAMETERS" value="&quot;C:\Users\agust\OneDrive\Escritorio\Uni\2º año\DAPC\Api´s project\eventstore\prediction.Flight\AviationStackFeeder&quot; " />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.example.batch.*" />
@@ -371,7 +355,8 @@
     <MESSAGE value="New feeder, Checking mistakes V 3.1.0" />
     <MESSAGE value="Recovering classes  V 3.2.0" />
     <MESSAGE value="Checking classes  V 3.2.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Checking classes  V 3.2.1" />
+    <MESSAGE value="Problemas solucionados y columna delay  V 3.2.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Problemas solucionados y columna delay  V 3.2.3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
