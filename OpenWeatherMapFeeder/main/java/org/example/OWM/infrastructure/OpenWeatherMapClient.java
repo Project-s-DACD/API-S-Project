@@ -1,67 +1,87 @@
-package org.example.OWM.infrastructure;
+// src/main/java/org/example/OWM/infrastructure/adapter/OpenWeatherMapClient.java
+package main.java.org.example.OWM.infrastructure;
 
-import org.example.OWM.domain.LocationWeather;
-import org.example.OWM.infrastructure.adapter.WeatherConverter;
-import org.example.OWM.infrastructure.ports.WeatherProvider;
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.time.Duration;
+import main.java.org.example.OWM.infrastructure.adapter.WeatherConverter;
+import main.java.org.example.OWM.infrastructure.ports.WeatherProvider;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import main.java.org.example.OWM.domain.LocationWeather;
+import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Cliente HTTP para OpenWeatherMap.
+ * Se encarga de llamar al endpoint, parsear el JSON,
+ * y delegar la conversión a LocationWeather.
+ */
 public class OpenWeatherMapClient implements WeatherProvider {
-    private final String apiKey;
+    private final OkHttpClient client;
+    private final Gson gson;
     private final String baseUrl;
-    private final HttpClient client;
-    private final List<String> cities = List.of(
-            "Madrid,ES",
-            "London,UK",
-            "Paris,FR"
-            // …añade más si quieres
-    );
+    private final String apiKey;
+    private final List<String> cities;
 
-    public OpenWeatherMapClient(String baseUrl, String apiKey) {
+    /**
+     * @param baseUrl URL base de la API (p.ej. https://api.openweathermap.org/data/2.5/weather)
+     * @param apiKey  tu clave de OpenWeatherMap
+     * @param cities  lista de "Ciudad,PAÍS" a consultar
+     */
+    public OpenWeatherMapClient(String baseUrl, String apiKey, List<String> cities) {
+        this.client  = new OkHttpClient();
+        this.gson    = new Gson();
         this.baseUrl = baseUrl;
         this.apiKey  = apiKey;
-        this.client  = HttpClient.newBuilder()
-                .connectTimeout(Duration.ofSeconds(10))
-                .build();
+        this.cities  = Collections.unmodifiableList(cities);
     }
 
     /**
-     * Implementación de la interfaz: llama al API para una sola ciudad
+     * Devuelve la lista de ciudades configuradas.
      */
-    @Override
+    public List<String> getCities() {
+        return cities;
+    }
+
+    /**
+     * Consulta el clima para la ciudad indicada y devuelve
+     * un Optional con LocationWeather si todo fue OK.
+     */
     public Optional<LocationWeather> getCurrentWeather(String city) {
         try {
+            String encoded = URLEncoder.encode(city, StandardCharsets.UTF_8);
             String url = String.format(
                     "%s?q=%s&units=metric&lang=es&appid=%s",
-                    baseUrl, city, apiKey
+                    baseUrl, encoded, apiKey
             );
-            HttpRequest req = HttpRequest.newBuilder()
-                    .uri(URI.create(url))
-                    .timeout(Duration.ofSeconds(10))
-                    .GET()
-                    .header("Accept", "application/json")
+
+            Request request = new Request.Builder()
+                    .url(url)
+                    .get()
+                    .addHeader("Accept", "application/json")
                     .build();
-            HttpResponse<String> resp = client.send(req, HttpResponse.BodyHandlers.ofString());
-            if (resp.statusCode() != 200 || resp.body() == null) {
-                return Optional.empty();
+
+            try (Response resp = client.newCall(request).execute()) {
+                if (!resp.isSuccessful() || resp.body() == null) {
+                    return Optional.empty();
+                }
+                String json = resp.body().string();
+                JsonObject root = gson.fromJson(json, JsonObject.class);
+                return Optional.of(WeatherConverter.fromJson(root));
             }
-            JsonObject root = JsonParser.parseString(resp.body()).getAsJsonObject();
-            return Optional.of(WeatherConverter.fromJson(root));
-        } catch (Exception e) {
-            // log.error("Error en OWM API: {}", e.getMessage());
+        } catch (IOException e) {
+            // podrias log.error("Error calling OWM API", e);
             return Optional.empty();
         }
     }
 
-    /** Devuelve la lista de ciudades que este cliente maneja internamente */
-    public List<String> getCities() {
-        return cities;
+    @Override
+    public List<LocationWeather> provide() {
+        return List.of();
     }
 }
