@@ -23,7 +23,7 @@ public class FlightPublisher {
 
             JsonObject event = new JsonObject();
             event.addProperty("ts", java.time.Instant.now().toString());
-            event.addProperty("ss", "feederA");
+            event.addProperty("ss", "AviationStackFeeder");
             event.add("data", gson.toJsonTree(flight));
 
             String eventString = event.toString();

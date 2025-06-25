@@ -24,7 +24,7 @@ public class AviationFlightStore implements DataStore<Flight> {
     @Override
     public void insertFlightsIntoDatabase(List<Flight> flights) throws SQLException {
         if (flights.isEmpty()) {
-            System.out.println("No hay vuelos para insertar.");
+            System.out.println("No flights ready to insert.");
             return;
         }
         saveFlightsToDatabase(flights);
@@ -45,7 +45,7 @@ public class AviationFlightStore implements DataStore<Flight> {
                         "UNIQUE(flight_date, flight_number, airline)" +
                         ");";
                 conn.createStatement().execute(createTableSQL);
-                System.out.println("Base de datos y tabla creadas correctamente.");
+                System.out.println("Database correctly created.");
             }
         }
     }
@@ -65,7 +65,7 @@ public class AviationFlightStore implements DataStore<Flight> {
             }
 
             pstmt.executeBatch();
-            System.out.println("Vuelos insertados en la base de datos (sin duplicados).");
+            System.out.println("Flights inserted into database correctly, no duplicates.");
         }
     }
 }

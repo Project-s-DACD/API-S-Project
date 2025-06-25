@@ -3,10 +3,10 @@ package org.example.serving;
 import org.example.domain.Flight;
 import org.example.infrastructure.persistence.AviationFlightStore;
 import org.example.infrastructure.ports.DataStore;
-import org.rosuda.REngine.Rserve.RConnection;
-import org.rosuda.REngine.Rserve.RserveException;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStreamReader;
 import java.sql.SQLException;
 
 public class DatamartFlightStore extends AviationFlightStore implements DataStore<Flight> {
@@ -14,17 +14,37 @@ public class DatamartFlightStore extends AviationFlightStore implements DataStor
         super(file);
     }
 
-    public void executeScriptR() {
+
+    public void executeScriptWithProcessBuilder() {
         try {
-            RConnection c = new RConnection();
-            c.eval("source('business-unit/graficos/generarGraficos.R')");
-            c.eval("generarGraficos()");
-            System.out.println("Script R ejecutado correctamente con Rserve.");
-            c.close();
+
+            String rutaScript = "C:/Users/agust/OneDrive/Escritorio/Uni/2º año/DAPC/Api´s project/business-unit/graficos/generarGraficos.R";
+
+
+            ProcessBuilder pb = new ProcessBuilder(
+                    "C:\\PROGRA~1\\R\\R-44~1.1\\bin\\x64\\Rscript.exe",
+                    rutaScript
+            );
+
+            pb.redirectErrorStream(true);
+            Process process = pb.start();
+
+            new BufferedReader(new InputStreamReader(process.getInputStream()))
+                    .lines()
+                    .forEach(System.out::println);
+
+            int exitCode = process.waitFor();
+            if (exitCode == 0) {
+                System.out.println("Script R ejecutado correctamente.");
+            } else {
+                System.err.println("El script R finalizó con código: " + exitCode);
+            }
+
         } catch (Exception e) {
-            System.err.println("Error al ejecutar el script R con Rserve: " + e.getClass());
+            System.err.println("No se pudo ejecutar Rscript: " + e.getMessage());
         }
     }
+
 
 
     @Override
@@ -39,7 +59,7 @@ public class DatamartFlightStore extends AviationFlightStore implements DataStor
         }
 
         saveFlightsToDatabase(validos);
-        executeScriptR();
+        executeScriptWithProcessBuilder();
 
 
     }

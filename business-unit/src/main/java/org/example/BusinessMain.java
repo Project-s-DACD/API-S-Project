@@ -18,32 +18,27 @@ public class BusinessMain {
 
             DatamartFlightStore datamart = new DatamartFlightStore(new File("business-unit/datamart.db"));
 
-            // Carga eventos históricos
-            System.out.println("📂 Ruta del archivo de eventos: " + args[0]);
+            System.out.println("Event´s path: " + args[0]);
             EventLoader loader = new FileEventLoader(new File(args[0]));
             List<Flight> vuelosHistoricos = loader.loadEvents();
             List<Flight> vuelosValidos = vuelosHistoricos.stream()
                     .filter(f -> f != null && f.getFlight_date() != null)
                     .toList();
 
-            System.out.println("✅ Vuelos válidos para insertar: " + vuelosValidos.size());
+            System.out.println("Flights ready to insert: " + vuelosValidos.size());
             datamart.insertFlightsIntoDatabase(vuelosValidos);
-
-            // Subscripción en tiempo real (para nuevos eventos del broker)
+            datamart.executeScriptWithProcessBuilder();
             BusinessSubscriber subscriber = new BusinessSubscriber(datamart);
             subscriber.startRealTimeSubscriber();
 
-            // CLI para visualización de gráficos
             new BusinessCli().startMenuCli();
-
-            // Mantiene la app viva
-            System.out.println("🟢 Escuchando eventos en tiempo real...");
+            System.out.println("Starting realtime events...");
             Thread.sleep(Long.MAX_VALUE);
 
         } catch (SQLException e) {
-            System.err.println("❌ Error con la base de datos: " + e.getMessage());
+            System.err.println("Error in database: " + e.getMessage());
         } catch (Exception e) {
-            System.err.println("❌ Error general: " + e.getMessage());
+            System.err.println("General error: " + e.getMessage());
             e.printStackTrace();
         }
     }

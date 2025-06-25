@@ -52,7 +52,7 @@ public class FileEventLoader implements EventLoader {
                     }
                 }
             } catch (IOException e) {
-                System.err.println("Error whule reading the file: " + file.getName());
+                System.err.println("Error while reading the file: " + file.getName());
             }
         }
 
