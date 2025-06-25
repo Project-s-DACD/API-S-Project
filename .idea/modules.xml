@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/API-S-Project.iml" filepath="$PROJECT_DIR$/.idea/API-S-Project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OpenWeatherMapFeeder/main/owmapi.iml" filepath="$PROJECT_DIR$/OpenWeatherMapFeeder/main/owmapi.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,18 +1,28 @@
-package org.example.OWM;
+package main.java.org.example.OWM;
+
+import main.java.org.example.OWM.infrastructure.OpenWeatherMapClient;
+import main.java.org.example.OWM.infrastructure.adapter.ActiveMqWeatherStorage;
+import main.java.org.example.OWM.infrastructure.ports.WeatherProvider;
+import main.java.org.example.OWM.infrastructure.ports.WeatherStorage;
+
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        if (args.length < 2) {
-            System.err.println("Uso: <API_KEY> <BASE_URL>");
-            System.exit(1);
-        }
         String apiKey  = args[0];
         String baseUrl = args[1];
+        List<String> cities = List.of(
+                "Madrid,ES",
+                "London,UK",
+                "Paris,FR");
 
-        // Main solo crea el controller, sin más lógica:
-        Controller controller = new Controller(baseUrl, apiKey);
+        WeatherProvider provider = new OpenWeatherMapClient(baseUrl, apiKey, cities);
+        WeatherStorage  storage  = new ActiveMqWeatherStorage(
+                "ConnectionFactory",
+                "weather.queue"
+        );
 
-        // Y dispara la consulta:
-        controller.fetchAndPrint();
+        Controller controller = new Controller(provider, storage);
+        controller.execute();
     }
 }

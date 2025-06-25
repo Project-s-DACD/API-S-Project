@@ -1,10 +1,14 @@
-package org.example.OWM.infrastructure.adapter;
+package main.java.org.example.OWM.infrastructure.adapter;
 
 import com.google.gson.JsonObject;
-import org.example.OWM.domain.LocationWeather;
+import main.java.org.example.OWM.domain.LocationWeather;
 
 public class WeatherConverter {
+
     public static LocationWeather fromJson(JsonObject root) {
+        String city = root.has("name")
+                ? root.get("name").getAsString()
+                : "unknown";
         var main = root.getAsJsonObject("main");
         var wind = root.getAsJsonObject("wind");
         var clouds = root.getAsJsonObject("clouds");
@@ -20,6 +24,7 @@ public class WeatherConverter {
         int cloudiness = clouds.get("all").getAsInt();
 
         return new LocationWeather(
+                city,
                 temperature,
                 humidity,
                 visibility,
