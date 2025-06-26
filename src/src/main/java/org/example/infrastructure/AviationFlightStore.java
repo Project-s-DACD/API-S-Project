@@ -42,7 +42,7 @@ public class AviationFlightStore implements DataStore<Flight> {
                         "arrival_airport TEXT," +
                         "airline TEXT," +
                         "departure_delay INTEGER,"+
-                        "UNIQUE(flight_date, airline)" +
+                        "UNIQUE(flight_date, airline, departure_airport, arrival_airport,departure_delay)" +
                         ");";
                 conn.createStatement().execute(createTableSQL);
                 System.out.println("Database correctly created.");

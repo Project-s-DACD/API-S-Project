@@ -8,14 +8,18 @@ import javax.jms.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class FlightSubscriber {
 
-    private static final String brokerUrl = "tcp://localhost:61616";
+    private final String brokerUrl;
     private static final String topicName = "prediction.Flight";
     private static final String basePath = "eventstore";
+
+    public FlightSubscriber(String brokerUrl) {
+        this.brokerUrl = brokerUrl;
+    }
 
     public void startConnectionToBroker() throws JMSException {
         ConnectionFactory factory = new ActiveMQConnectionFactory(brokerUrl);
@@ -45,12 +49,10 @@ public class FlightSubscriber {
     private void saveEventFromTopic(String json) throws EventStoreException {
         try {
             JsonObject obj = JsonParser.parseString(json).getAsJsonObject();
-
             String ss = obj.has("ss") ? obj.get("ss").getAsString() : "unknown";
 
-            JsonObject data = obj.getAsJsonObject("data");
-            String flightDate = data.get("flight_date").getAsString();
-            String datePart = LocalDate.parse(flightDate).format(DateTimeFormatter.BASIC_ISO_DATE);
+            String ts = obj.has("ts") ? obj.get("ts").getAsString() : OffsetDateTime.now().toString();
+            String datePart = OffsetDateTime.parse(ts).toLocalDate().format(DateTimeFormatter.BASIC_ISO_DATE);
 
             File dir = new File(basePath + "/" + topicName + "/" + ss);
             if (!dir.exists() && !dir.mkdirs()) {

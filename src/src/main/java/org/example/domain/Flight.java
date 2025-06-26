@@ -14,7 +14,7 @@ public class Flight {
     }
 
     public Flight(String flight_date, String flight_status, String departure_airport,
-                  String arrival_airport, String airline, String flight_number, int id) {
+                  String arrival_airport, String airline, String flight_number, int id, Integer departure_delay) {
         this.flight_date = flight_date;
         this.flight_status = flight_status;
         this.departure_airport = departure_airport;
