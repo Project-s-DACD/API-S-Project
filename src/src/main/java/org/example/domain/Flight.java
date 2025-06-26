@@ -50,8 +50,12 @@ public class Flight {
         return id;
     }
 
-    public Integer getDeparture_delay() {
+    public int getDeparture_delay() {
         return departure_delay;
+    }
+
+    public int getDepartureDelayOrZero() {
+        return departure_delay != null ? departure_delay : 0;
     }
 
 }

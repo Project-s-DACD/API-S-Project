@@ -3,3 +3,4 @@
 {"ts":"2025-06-26T20:04:31.764846900Z","ss":"feeder-OWM","city":"Gando","temperature":22.89,"humidity":68,"visibility":10000,"windSpeed":13.89,"precipitation":0.0,"cloudiness":20}
 {"ts":"2025-06-26T20:24:31.797223600Z","ss":"feeder-OWM","city":"Gando","temperature":22.89,"humidity":68,"visibility":10000,"windSpeed":13.38,"precipitation":0.0,"cloudiness":20}
 {"ts":"2025-06-26T20:44:31.767895700Z","ss":"feeder-OWM","city":"Gando","temperature":22.89,"humidity":68,"visibility":10000,"windSpeed":13.38,"precipitation":0.0,"cloudiness":20}
+{"ts":"2025-06-26T21:00:34.025343400Z","ss":"feeder-OWM","city":"Gando","temperature":22.89,"humidity":68,"visibility":10000,"windSpeed":12.86,"precipitation":0.0,"cloudiness":20}

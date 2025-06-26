@@ -1,17 +1,16 @@
 package org.example.serving;
 
+import org.example.domain.Flight;
+import org.example.OWM.domain.LocationWeather;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.sql.*;
-import java.io.File;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.example.domain.Flight;
-import org.example.OWM.domain.LocationWeather;
-
-public class DatamartStore {
+public class DatamartStore implements AutoCloseable {
     private static final Logger logger = LoggerFactory.getLogger(DatamartStore.class);
     private final Connection conn;
 
@@ -21,7 +20,6 @@ public class DatamartStore {
         } catch (ClassNotFoundException e) {
             throw new SQLException("SQLite JDBC driver not found", e);
         }
-
         this.conn = DriverManager.getConnection("jdbc:sqlite:business-unit/datamart.db");
         createTables();
     }
@@ -39,7 +37,6 @@ public class DatamartStore {
                     departure_delay INTEGER
                 )
             """);
-
             s.executeUpdate("""
                 CREATE TABLE IF NOT EXISTS weather (
                     ts TEXT,
@@ -66,7 +63,8 @@ public class DatamartStore {
             ps.setString(4, f.getDeparture_airport());
             ps.setString(5, f.getArrival_airport());
             ps.setString(6, f.getAirline());
-            ps.setInt(7, f.getDeparture_delay());
+            // Manejo seguro de departure_delay nulo:
+            ps.setInt(7, f.getDepartureDelayOrZero());
             ps.executeUpdate();
         }
     }
@@ -99,31 +97,26 @@ public class DatamartStore {
     public void executeScriptWithProcessBuilder() {
         try {
             String scriptPath = "business-unit/graficos/generarGraficos.R";
-
             ProcessBuilder pb = new ProcessBuilder(
                     "C:\\PROGRA~1\\R\\R-44~1.1\\bin\\x64\\Rscript.exe",
                     scriptPath
             );
-
             pb.redirectErrorStream(true);
             Process process = pb.start();
-
             new BufferedReader(new InputStreamReader(process.getInputStream()))
-                    .lines()
-                    .forEach(logger::info);
-
+                    .lines().forEach(logger::info);
             int exitCode = process.waitFor();
             if (exitCode == 0) {
                 logger.info("Script executed successfully.");
             } else {
                 logger.error("Script finished with exit code: {}", exitCode);
             }
-
         } catch (Exception e) {
             logger.error("Failed to execute R script: {}", e.getMessage(), e);
         }
     }
 
+    @Override
     public void close() throws SQLException {
         conn.close();
     }
