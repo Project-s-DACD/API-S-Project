@@ -4,9 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bdcfcd7-dc1f-4138-836d-5a4d5705597d" name="Changes" comment="Problemas solucionados, falta eventStoreBuilder V 3.2.6">
+    <list default="true" id="1bdcfcd7-dc1f-4138-836d-5a4d5705597d" name="Changes" comment="Problemas solucionados con eventStoreBuilder V 3.2.7">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/main/java/org/example/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/org/example/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventStoreBuilder/src/main/java/org/example/subscriber/FlightSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/eventStoreBuilder/src/main/java/org/example/subscriber/FlightSubscriber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventStoreBuilder/target/classes/org/example/subscriber/EventStoreException.class" beforeDir="false" afterPath="$PROJECT_DIR$/eventStoreBuilder/target/classes/org/example/subscriber/EventStoreException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventStoreBuilder/target/classes/org/example/subscriber/FlightSubscriber.class" beforeDir="false" afterPath="$PROJECT_DIR$/eventStoreBuilder/target/classes/org/example/subscriber/FlightSubscriber.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventStoreBuilder/target/classes/org/example/subscriber/SubscriberMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/eventStoreBuilder/target/classes/org/example/subscriber/SubscriberMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flights.db" beforeDir="false" afterPath="$PROJECT_DIR$/flights.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/org/example/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/org/example/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/domain/Flight.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/org/example/domain/Flight.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/AviationAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/AviationAPI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/AviationFlightStore.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/AviationFlightStore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/AviationProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/AviationProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/FlightPublisher.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/FlightPublisher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/ports/DataProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/ports/DataProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/ports/DataStore.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/ports/DataStore.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -302,7 +316,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750936801393</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Problemas solucionados con eventStoreBuilder V 3.2.7">
+      <option name="closed" value="true" />
+      <created>1750937190840</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1750937190840</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -362,7 +384,8 @@
     <MESSAGE value="Checking classes  V 3.2.1" />
     <MESSAGE value="Problemas solucionados y columna delay  V 3.2.3" />
     <MESSAGE value="Problemas solucionados, falta eventStoreBuilder V 3.2.6" />
-    <option name="LAST_COMMIT_MESSAGE" value="Problemas solucionados, falta eventStoreBuilder V 3.2.6" />
+    <MESSAGE value="Problemas solucionados con eventStoreBuilder V 3.2.7" />
+    <option name="LAST_COMMIT_MESSAGE" value="Problemas solucionados con eventStoreBuilder V 3.2.7" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

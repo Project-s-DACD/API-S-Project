@@ -56,7 +56,7 @@ public class FlightSubscriber {
 
             File dir = new File(basePath + "/" + topicName + "/" + ss);
             if (!dir.exists() && !dir.mkdirs()) {
-                throw new EventStoreException("No se pudo crear el directorio para guardar el evento", null);
+                throw new EventStoreException("Couldn ´t create the directory", null);
             }
 
             File file = new File(dir, datePart + ".events");
