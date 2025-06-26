@@ -1,87 +1,86 @@
-// src/main/java/org/example/OWM/infrastructure/adapter/OpenWeatherMapClient.java
 package org.example.OWM.infrastructure;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import org.example.OWM.infrastructure.adapter.WeatherConverter;
-import org.example.OWM.infrastructure.ports.WeatherProvider;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import org.example.OWM.domain.LocationWeather;
+import org.example.OWM.infrastructure.adapter.WeatherConverter;
+
 import java.io.IOException;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 /**
- * Cliente HTTP para OpenWeatherMap.
- * Se encarga de llamar al endpoint, parsear el JSON,
- * y delegar la conversión a LocationWeather.
+ * Cliente HTTP para OpenWeatherMap que maneja internamente una lista de coordenadas.
  */
-public class OpenWeatherMapClient implements WeatherProvider {
-    private final OkHttpClient client;
-    private final Gson gson;
+public class OpenWeatherMapClient {
+    private final OkHttpClient client = new OkHttpClient();
+    private final Gson gson = new Gson();
+
     private final String baseUrl;
     private final String apiKey;
-    private final List<String> cities;
+    private final List<double[]> coords;
 
     /**
-     * @param baseUrl URL base de la API (p.ej. https://api.openweathermap.org/data/2.5/weather)
-     * @param apiKey  tu clave de OpenWeatherMap
-     * @param cities  lista de "Ciudad,PAÍS" a consultar
+     * @param baseUrl URL base de la API (por ejemplo https://api.openweathermap.org/data/2.5/weather)
+     * @param apiKey  Tu clave de API de OpenWeatherMap
+     * @param coords  Lista de pares [lat, lon] a consultar
      */
-    public OpenWeatherMapClient(String baseUrl, String apiKey, List<String> cities) {
-        this.client  = new OkHttpClient();
-        this.gson    = new Gson();
+    public OpenWeatherMapClient(String baseUrl, String apiKey, List<double[]> coords) {
         this.baseUrl = baseUrl;
-        this.apiKey  = apiKey;
-        this.cities  = Collections.unmodifiableList(cities);
+        this.apiKey = apiKey;
+        // guardamos una copia inmutable de las coordenadas
+        this.coords = Collections.unmodifiableList(new ArrayList<>(coords));
     }
 
     /**
-     * Devuelve la lista de ciudades configuradas.
+     * Consulta la API para todas las coordenadas configuradas y devuelve la lista de LocationWeather.
      */
-    public List<String> getCities() {
-        return cities;
+    public List<LocationWeather> fetchAll() {
+        List<LocationWeather> result = new ArrayList<>();
+        for (double[] latLon : coords) {
+            fetchWeather(latLon[0], latLon[1])
+                    .ifPresent(result::add);
+        }
+        return result;
     }
 
     /**
-     * Consulta el clima para la ciudad indicada y devuelve
-     * un Optional con LocationWeather si todo fue OK.
+     * Consulta la API para una sola coordenada.
+     * @param lat latitud
+     * @param lon longitud
+     * @return Optional con LocationWeather si éxito, o empty si falla
      */
-    public Optional<LocationWeather> getCurrentWeather(String city) {
-        try {
-            String encoded = URLEncoder.encode(city, StandardCharsets.UTF_8);
-            String url = String.format(
-                    "%s?q=%s&units=metric&lang=es&appid=%s",
-                    baseUrl, encoded, apiKey
-            );
+    public Optional<LocationWeather> fetchWeather(double lat, double lon) {
+        String url = String.format(
+                "%s?lat=%.6f&lon=%.6f&units=metric&lang=es&appid=%s",
+                baseUrl, lat, lon, apiKey
+        );
+        Request req = new Request.Builder()
+                .url(url)
+                .get()
+                .addHeader("Accept", "application/json")
+                .build();
 
-            Request request = new Request.Builder()
-                    .url(url)
-                    .get()
-                    .addHeader("Accept", "application/json")
-                    .build();
-
-            try (Response resp = client.newCall(request).execute()) {
-                if (!resp.isSuccessful() || resp.body() == null) {
-                    return Optional.empty();
-                }
-                String json = resp.body().string();
-                JsonObject root = gson.fromJson(json, JsonObject.class);
-                return Optional.of(WeatherConverter.fromJson(root));
+        try (Response resp = client.newCall(req).execute()) {
+            if (!resp.isSuccessful() || resp.body() == null) {
+                return Optional.empty();
             }
+            JsonObject root = gson.fromJson(resp.body().string(), JsonObject.class);
+            return Optional.of(WeatherConverter.fromJson(root));
         } catch (IOException e) {
-            // podrias log.error("Error calling OWM API", e);
             return Optional.empty();
         }
     }
 
-    @Override
-    public List<LocationWeather> provide() {
-        return List.of();
+    /**
+     * Devuelve la lista de coordenadas manejadas.
+     */
+    public List<double[]> getCoords() {
+        return coords;
     }
 }

@@ -1,7 +1,16 @@
+// src/main/java/org/example/OWM/domain/LocationWeather.java
 package org.example.OWM.domain;
 
+import java.time.Instant;
+
+/**
+ * Representa un evento meteorológico con timestamp, fuente y datos de clima.
+ */
 public class LocationWeather {
+    private final Instant ts;
+    private final String ss;
     private final String city;
+
     private final double temperature;
     private final int    humidity;
     private final int    visibility;
@@ -10,6 +19,8 @@ public class LocationWeather {
     private final int    cloudiness;
 
     public LocationWeather(
+            Instant ts,
+            String ss,
             String city,
             double temperature,
             int humidity,
@@ -18,6 +29,8 @@ public class LocationWeather {
             double precipitation,
             int cloudiness
     ) {
+        this.ts            = ts;
+        this.ss            = ss;
         this.city          = city;
         this.temperature   = temperature;
         this.humidity      = humidity;
@@ -27,19 +40,13 @@ public class LocationWeather {
         this.cloudiness    = cloudiness;
     }
 
-    public String getCity()        { return city; }
-    public double getTemperature() { return temperature; }
-    public int    getHumidity()    { return humidity; }
-    public int    getVisibility()  { return visibility; }
-    public double getWindSpeed()   { return windSpeed; }
-    public double getPrecipitation(){ return precipitation; }
-    public int    getCloudiness()  { return cloudiness; }
-
-    @Override
-    public String toString() {
-        return String.format(
-                "%s → Weather[temp=%.1f°C, humidity=%d%%, visibility=%dm, wind=%.1fm/s, precipitation=%.1fmm, clouds=%d%%]",
-                city, temperature, humidity, visibility, windSpeed, precipitation, cloudiness
-        );
-    }
+    public Instant getTs()            { return ts; }
+    public String  getSs()            { return ss; }
+    public String  getCity()          { return city; }
+    public double  getTemperature()   { return temperature; }
+    public int     getHumidity()      { return humidity; }
+    public int     getVisibility()    { return visibility; }
+    public double  getWindSpeed()     { return windSpeed; }
+    public double  getPrecipitation() { return precipitation; }
+    public int     getCloudiness()    { return cloudiness; }
 }

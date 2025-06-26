@@ -15,26 +15,28 @@ import javax.jms.JMSException;
 import javax.jms.MessageProducer;
 import javax.jms.Session;
 import javax.jms.TextMessage;
+import javax.jms.Topic;
 import java.time.Instant;
 
 /**
- * Envía objetos LocationWeather a una cola de ActiveMQ.
+ * Envía eventos meteorológicos a un topic de ActiveMQ.
  */
 public class ActiveMqWeatherStorage implements WeatherStorage {
     private static final Logger log = LoggerFactory.getLogger(ActiveMqWeatherStorage.class);
 
     private final Gson gson;
     private final ActiveMqManager manager;
-    private final String queueName;
+    private static final String TOPIC_NAME = "Weather";
 
-    public ActiveMqWeatherStorage(String brokerUrl, String queueName) {
+    /**
+     * @param brokerUrl URL de conexión a ActiveMQ (p.ej. tcp://localhost:61616)
+     */
+    public ActiveMqWeatherStorage(String brokerUrl) {
         this.gson = new GsonBuilder()
-                // si LocationWeather incluye Instant, registrar adaptador aquí
                 .registerTypeAdapter(Instant.class, (JsonSerializer<Instant>) (src, typeOfSrc, context) ->
                         new JsonPrimitive(src.toString()))
                 .create();
         this.manager = new ActiveMqManager(brokerUrl);
-        this.queueName = queueName;
     }
 
     @Override
@@ -45,14 +47,16 @@ public class ActiveMqWeatherStorage implements WeatherStorage {
         try {
             connection = manager.createConnection();
             session = manager.createSession(connection);
-            producer = manager.createProducer(session, queueName);
+            // Publicar en topic en lugar de cola
+            Topic topic = session.createTopic(TOPIC_NAME);
+            producer = session.createProducer(topic);
 
             String payload = gson.toJson(weather);
             TextMessage message = session.createTextMessage(payload);
-            message.setStringProperty("city", queueName);
             producer.send(message);
+            log.info("Published weather event to topic {}: {}", TOPIC_NAME, payload);
         } catch (Exception e) {
-            log.error("Error publicando weather para {}: {}", queueName, e.getMessage(), e);
+            log.error("Error publicando weather event: {}", e.getMessage(), e);
         } finally {
             try { if (producer   != null) producer.close();   } catch (JMSException ignored) { log.warn("Error cerrando producer: {}", ignored.getMessage()); }
             try { if (session    != null) session.close();    } catch (JMSException ignored) { log.warn("Error cerrando session: {}", ignored.getMessage()); }
@@ -60,3 +64,4 @@ public class ActiveMqWeatherStorage implements WeatherStorage {
         }
     }
 }
+

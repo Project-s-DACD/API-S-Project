@@ -1,29 +1,34 @@
 package org.example.OWM;
 
-import org.example.OWM.infrastructure.OpenWeatherMapClient;
+import org.example.OWM.infrastructure.adapter.OpenWeatherMapProvider;
 import org.example.OWM.infrastructure.adapter.ActiveMqWeatherStorage;
-import org.example.OWM.infrastructure.ports.WeatherProvider;
-import org.example.OWM.infrastructure.ports.WeatherStorage;
-import org.example.OWM.Controller;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
-        String apiKey  = args[0];
-        String baseUrl = args[1];
-        List<String> cities = List.of(
-                "Madrid,ES",
-                "London,UK",
-                "Paris,FR");
+    private static final Logger log = LoggerFactory.getLogger(Main.class);
 
-        WeatherProvider provider = new OpenWeatherMapClient(baseUrl, apiKey, cities);
-        WeatherStorage  storage  = new ActiveMqWeatherStorage(
-                "ConnectionFactory",
-                "weather.queue"
+    public static void main(String[] args) {
+        if (args.length < 3) {
+            log.warn("Usage: <baseUrl> <apiKey> <brokerUrl>");
+            return;
+        }
+
+        String baseUrl   = args[0];          // e.g. https://api.openweathermap.org/data/2.5/weather
+        String apiKey    = args[1];          // tu API key de OWM
+        String brokerUrl = args[2];          // e.g. tcp://localhost:61616
+
+        // Coordenadas fijas definidas directamente en el código:
+        List<double[]> coords = List.of(
+                new double[]{27.929655298285752, -15.387054443145411}
         );
 
-        Controller controller = new Controller(provider, storage);
-        controller.execute();
+        // Creamos el provider y el storage justo con esas coords
+        var provider = new OpenWeatherMapProvider(baseUrl, apiKey, coords);
+        var storage  = new ActiveMqWeatherStorage(brokerUrl);
+
+        new Controller(provider, storage).execute();
     }
 }

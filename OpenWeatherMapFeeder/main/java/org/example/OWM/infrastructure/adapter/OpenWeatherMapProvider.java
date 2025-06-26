@@ -7,12 +7,11 @@ import org.example.OWM.infrastructure.ports.WeatherProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
- * Proveedor de clima que recorre las ciudades configuradas,
- * llama al API y convierte cada respuesta JSON en LocationWeather.
+ * Proveedor de clima que delega toda la lógica en OpenWeatherMapClient.
  */
 public class OpenWeatherMapProvider implements WeatherProvider {
     private static final Logger log = LoggerFactory.getLogger(OpenWeatherMapProvider.class);
@@ -20,29 +19,25 @@ public class OpenWeatherMapProvider implements WeatherProvider {
     private final OpenWeatherMapClient apiClient;
 
     /**
-     * @param baseUrl URL base de OpenWeatherMap (sin ?q=...)
-     * @param apiKey  tu clave de OpenWeatherMap
-     * @param cities  lista de "Ciudad,PAÍS" a consultar
+     * @param baseUrl URL base de OpenWeatherMap (sin parámetros)
+     * @param apiKey  Tu clave de API de OpenWeatherMap
+     * @param coords  Lista de pares [latitud, longitud]
      */
-    public OpenWeatherMapProvider(String baseUrl, String apiKey, List<String> cities) {
-        this.apiClient = new OpenWeatherMapClient(baseUrl, apiKey, cities);
+    public OpenWeatherMapProvider(String baseUrl, String apiKey, List<double[]> coords) {
+        this.apiClient = new OpenWeatherMapClient(baseUrl, apiKey, coords);
     }
 
     /**
-     * Recorre todas las ciudades, obtiene el JSON crudo
-     * y lo convierte en LocationWeather con WeatherConverter.
+     * Devuelve la lista completa de LocationWeather consultando todas las coordenadas.
      */
     @Override
     public List<LocationWeather> provide() {
-        List<LocationWeather> result = new ArrayList<>();
-        for (String city : apiClient.getCities()) {
-            try {
-                apiClient.getCurrentWeather(city)
-                        .ifPresent(result::add);
-            } catch (Exception e) {
-                log.error("Error obteniendo clima para {}: {}", city, e.getMessage(), e);
-            }
+        try {
+            return apiClient.fetchAll();
+        } catch (Exception e) {
+            log.error("Error providing weather data: {}", e.getMessage(), e);
+            return Collections.emptyList();
         }
-        return result;
     }
 }
+
