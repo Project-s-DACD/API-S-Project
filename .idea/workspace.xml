@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bdcfcd7-dc1f-4138-836d-5a4d5705597d" name="Changes" comment="Problemas solucionados y columna delay  V 3.2.3" />
+    <list default="true" id="1bdcfcd7-dc1f-4138-836d-5a4d5705597d" name="Changes" comment="EventStoreBuilder Modification" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,27 +57,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.AviationAPI.executor&quot;: &quot;Run&quot;,
-    &quot;Application.BusinessMain.executor&quot;: &quot;Run&quot;,
-    &quot;Application.EuroStatAPI.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainConMiApiKey.executor&quot;: &quot;Run&quot;,
-    &quot;Application.SubscriberMain.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ViewDatabase.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/agust/OneDrive/Escritorio/Uni/2º año/DAPC/Api´s project&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/agust/OneDrive/Escritorio/Uni/2º año/DAPC/Api´s project/business-unit/graficos/src/main/java/org/example/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AviationAPI.executor": "Run",
+    "Application.BusinessMain.executor": "Run",
+    "Application.EuroStatAPI.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.MainConMiApiKey.executor": "Run",
+    "Application.OWMAPI.executor": "Run",
+    "Application.SubscriberMain.executor": "Run",
+    "Application.ViewDatabase.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/agust/OneDrive/Escritorio/Uni/2º año/DAPC/Api´s project",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "onboarding.tips.debug.path": "C:/Users/agust/OneDrive/Escritorio/Uni/2º año/DAPC/Api´s project/business-unit/graficos/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\agust\OneDrive\Escritorio\Uni\2º año\DAPC\Api´s project" />
@@ -124,12 +126,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SubscriberMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.subscriber.SubscriberMain" />
+    <configuration name="StoreBuilderMain" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="eventStoreBuilder" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.subscriber.*" />
+          <option name="PATTERN" value="org.example.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -141,14 +143,14 @@
       <item itemvalue="Application.MainConMiApiKey" />
       <item itemvalue="Application.OWMAPI" />
       <item itemvalue="Application.BusinessMain" />
-      <item itemvalue="Application.SubscriberMain" />
+      <item itemvalue="Application.StoreBuilderMain" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.BusinessMain" />
-        <item itemvalue="Application.SubscriberMain" />
+        <item itemvalue="Application.StoreBuilderMain" />
         <item itemvalue="Application.BusinessMain" />
-        <item itemvalue="Application.SubscriberMain" />
+        <item itemvalue="Application.StoreBuilderMain" />
         <item itemvalue="Application.BusinessMain" />
       </list>
     </recent_temporary>
@@ -298,7 +300,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750860617260</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="EventStoreBuilder Modification">
+      <option name="closed" value="true" />
+      <created>1750944527899</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1750944527899</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -357,7 +367,8 @@
     <MESSAGE value="Recovering classes  V 3.2.0" />
     <MESSAGE value="Checking classes  V 3.2.1" />
     <MESSAGE value="Problemas solucionados y columna delay  V 3.2.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Problemas solucionados y columna delay  V 3.2.3" />
+    <MESSAGE value="EventStoreBuilder Modification" />
+    <option name="LAST_COMMIT_MESSAGE" value="EventStoreBuilder Modification" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
