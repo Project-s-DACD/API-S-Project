@@ -4,22 +4,25 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.apache.activemq.ActiveMQConnectionFactory;
+import org.example.OWM.domain.LocationWeather;
 import org.example.domain.Flight;
-import org.example.serving.DatamartFlightStore;
+import org.example.serving.DatamartStore;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.jms.*;
+import java.util.List;
 
 public class BusinessSubscriber {
 
     private static final Logger logger = LoggerFactory.getLogger(BusinessSubscriber.class);
     private static final String brokerUrl = "tcp://localhost:61616";
     private static final String topicName = "prediction.Flight";
-    private final DatamartFlightStore datamart;
+
+    private final DatamartStore datamart;
     private final Gson gson = new Gson();
 
-    public BusinessSubscriber(DatamartFlightStore datamart) {
+    public BusinessSubscriber(DatamartStore datamart) {
         this.datamart = datamart;
     }
 
@@ -38,21 +41,29 @@ public class BusinessSubscriber {
                 try {
                     String json = textMessage.getText();
                     JsonObject event = JsonParser.parseString(json).getAsJsonObject();
+                    String source = event.get("ss").getAsString();
 
-                    if (!event.has("data") || event.get("data").isJsonNull()) {
-                        logger.error("Invalid message: {}", json);
-                        return;
-                    }
-
-                    JsonObject data = event.getAsJsonObject("data");
-                    Flight flight = gson.fromJson(data, Flight.class);
-
-                    if (flight != null && flight.getFlight_date() != null) {
-                        logger.info("Received event: {}", flight.getFlight_date());
-                        datamart.executeScriptWithProcessBuilder();
+                    if ("AviationStackFeeder".equals(source)) {
+                        JsonObject data = event.getAsJsonObject("data");
+                        Flight flight = gson.fromJson(data, Flight.class);
+                        if (flight != null && flight.getFlight_date() != null) {
+                            datamart.insertFlights(List.of(flight));
+                            logger.info("Received and saved flight: {}", flight.getFlight_date());
+                        } else {
+                            logger.error("Invalid flight: {}", data);
+                        }
+                    } else if ("feeder-OWM".equals(source)) {
+                        LocationWeather weather = gson.fromJson(event, LocationWeather.class);
+                        if (weather != null && weather.getCity() != null) {
+                            datamart.insertWeather(weather);
+                            logger.info("Received and saved weather: {}", weather.getCity());
+                        } else {
+                            logger.error("Invalid weather: {}", event);
+                        }
                     } else {
-                        logger.error("Invalid flight with null fields: {}", data);
+                        logger.warn("Unknown source '{}', skipping", source);
                     }
+
                 } catch (Exception e) {
                     logger.error("Error while processing the event: {}", e.getMessage(), e);
                 }
