@@ -1,4 +1,3 @@
-// src/main/java/es/ulpgc/dacd/eventstorebuilder/adapters/EventBrokerConnection.java
 package org.example.adapters;
 
 import org.apache.activemq.ActiveMQConnectionFactory;

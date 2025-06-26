@@ -10,10 +10,12 @@ import java.time.format.DateTimeFormatter;
 
 
 public class EventFileStore implements EventListener.EventHandler {
-    private final Gson gson;
+    private final String baseDir;
+    private final Gson   gson;
 
     public EventFileStore(String baseDir) {
-        this.gson = new GsonBuilder()
+        this.baseDir = baseDir;
+        this.gson    = new GsonBuilder()
                 .registerTypeAdapter(Instant.class, new InstantDeserializer())
                 .create();
     }
@@ -24,10 +26,11 @@ public class EventFileStore implements EventListener.EventHandler {
         String ts = obj.get("ts").getAsString();
         String ss = obj.get("ss").getAsString();
 
-        String date = LocalDate.parse(ts.substring(0, 10))
+        String date = LocalDate
+                .parse(ts.substring(0, 10))
                 .format(DateTimeFormatter.ofPattern("yyyyMMdd"));
 
-        Path dir = Paths.get("eventstore", topic, ss);
+        Path dir = Paths.get(baseDir, topic, ss);
         Files.createDirectories(dir);
 
         Path file = dir.resolve(date + ".events");
