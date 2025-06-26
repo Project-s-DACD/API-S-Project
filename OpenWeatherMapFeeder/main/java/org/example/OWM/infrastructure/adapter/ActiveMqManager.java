@@ -2,7 +2,12 @@ package org.example.OWM.infrastructure.adapter;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
-import javax.jms.*;
+import javax.jms.Connection;
+import javax.jms.JMSException;
+import javax.jms.MessageProducer;
+import javax.jms.Queue;
+import javax.jms.Session;
+
 
 public class ActiveMqManager {
 
@@ -12,11 +17,11 @@ public class ActiveMqManager {
         this.brokerUrl = brokerUrl;
     }
 
-    public Connection createConnection() throws JMSException, jakarta.jms.JMSException {
+    public Connection createConnection() throws javax.jms.JMSException {
         ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory(brokerUrl);
-        Connection connection = (Connection) factory.createConnection();
-        connection.start();
-        return connection;
+        javax.jms.Connection Connection = factory.createConnection();
+        Connection.start();
+        return Connection;
     }
 
     public Session createSession(Connection connection) throws JMSException {

@@ -11,50 +11,37 @@
         <packaging>jar</packaging>
 
         <properties>
-            <!-- Usamos Java 11 -->
             <maven.compiler.source>11</maven.compiler.source>
             <maven.compiler.target>11</maven.compiler.target>
             <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         </properties>
 
         <dependencies>
-            <!-- Gson para parseo de JSON -->
             <dependency>
                 <groupId>com.google.code.gson</groupId>
                 <artifactId>gson</artifactId>
                 <version>2.10</version>
             </dependency>
-
-            <!-- Cliente JMS de ActiveMQ -->
             <dependency>
                 <groupId>org.apache.activemq</groupId>
                 <artifactId>activemq-client</artifactId>
-                <version>6.1.6</version>
+                <version>5.15.12</version>
             </dependency>
-
-            <!-- API JMS (si tu versión de ActiveMQ no la incluye) -->
             <dependency>
                 <groupId>javax.jms</groupId>
                 <artifactId>javax.jms-api</artifactId>
                 <version>2.0.1</version>
-                <scope>compile</scope>
             </dependency>
-
-            <!-- SLF4J API -->
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
                 <version>2.0.7</version>
             </dependency>
-
-            <!-- Logback (implementación SLF4J) -->
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
                 <version>1.5.13</version>
             </dependency>
-
-            <!-- Cliente HTTP OkHttp -->
             <dependency>
                 <groupId>com.squareup.okhttp3</groupId>
                 <artifactId>okhttp</artifactId>

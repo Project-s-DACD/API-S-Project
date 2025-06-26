@@ -37,8 +37,8 @@ public class Controller {
                             }
                         },
                         0,
-                        1,
-                        TimeUnit.HOURS
+                        20,
+                        TimeUnit.MINUTES
                 );
     }
 }
