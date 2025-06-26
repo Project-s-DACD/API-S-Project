@@ -1,21 +1,19 @@
 package org.example.serving;
 
-import org.example.domain.Flight;
-import org.example.infrastructure.AviationFlightStore;
-import org.example.infrastructure.ports.DataStore;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
-import java.sql.SQLException;
 
-public class DatamartFlightStore extends AviationFlightStore implements DataStore<Flight> {
+public class DatamartFlightStore {
     private static final Logger logger = LoggerFactory.getLogger(DatamartFlightStore.class);
 
-    public DatamartFlightStore(File file) throws SQLException {
-        super(file);
+    private final File dbFile;
+
+    public DatamartFlightStore(File file) {
+        this.dbFile = file;
     }
 
     public void executeScriptWithProcessBuilder() {
@@ -44,19 +42,5 @@ public class DatamartFlightStore extends AviationFlightStore implements DataStor
         } catch (Exception e) {
             logger.error("Couldn´t execute Rscript: {}", e.getMessage());
         }
-    }
-
-    @Override
-    public void insertFlightsIntoDatabase(java.util.List<Flight> flights) throws SQLException {
-        java.util.List<Flight> validos = flights.stream()
-                .filter(f -> f != null && f.getFlight_date() != null)
-                .toList();
-
-        if (validos.isEmpty()) {
-            logger.info("There are not flights to save.");
-            return;
-        }
-
-        saveFlightsToDatabase(validos);
     }
 }

@@ -4,13 +4,12 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.apache.activemq.ActiveMQConnectionFactory;
-import org.example.serving.DatamartFlightStore;
 import org.example.domain.Flight;
+import org.example.serving.DatamartFlightStore;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.jms.*;
-import java.util.List;
 
 public class BusinessSubscriber {
 
@@ -49,10 +48,10 @@ public class BusinessSubscriber {
                     Flight flight = gson.fromJson(data, Flight.class);
 
                     if (flight != null && flight.getFlight_date() != null) {
-                        datamart.insertFlightsIntoDatabase(List.of(flight));
-                        logger.info("Received and saved event: {}", flight.getFlight_date());
+                        logger.info("Received event: {}", flight.getFlight_date());
+                        datamart.executeScriptWithProcessBuilder();
                     } else {
-                        logger.error("Invalid flights with type null: {}", data);
+                        logger.error("Invalid flight with null fields: {}", data);
                     }
                 } catch (Exception e) {
                     logger.error("Error while processing the event: {}", e.getMessage(), e);

@@ -12,7 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FileEventLoader implements EventLoader {
-    private static final Logger logger = LoggerFactory.getLogger(FileEventLoader.class);
+    private static final Logger log = LoggerFactory.getLogger(FileEventLoader.class);
+
     private final File baseDir;
     private final Gson gson = new Gson();
 
@@ -25,17 +26,18 @@ public class FileEventLoader implements EventLoader {
         List<Flight> allFlights = new ArrayList<>();
 
         if (!baseDir.exists()) {
-            logger.error("Couldn´t find a path: {}", baseDir.getAbsolutePath());
+            log.error("Path not found: {}", baseDir.getAbsolutePath());
             return allFlights;
         }
 
-        File[] files = baseDir.listFiles((dir, name) -> name.endsWith(".events"));
-        if (files == null || files.length == 0) {
-            logger.info("Couldn´t connect to .events in {}", baseDir.getAbsolutePath());
+        List<File> eventFiles = findAllEventFiles(baseDir);
+
+        if (eventFiles.isEmpty()) {
+            log.warn("No .events files found in: {}", baseDir.getAbsolutePath());
             return allFlights;
         }
 
-        for (File file : files) {
+        for (File file : eventFiles) {
             try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
                 String line;
                 while ((line = reader.readLine()) != null) {
@@ -46,20 +48,33 @@ public class FileEventLoader implements EventLoader {
                         if (flight != null && flight.getFlight_date() != null) {
                             allFlights.add(flight);
                         } else {
-                            logger.error("Wrong flight type null or no date: {}", data);
+                            log.warn("Skipping invalid flight: {}", data);
                         }
-
-                        allFlights.add(flight);
                     } catch (Exception e) {
-                        logger.error("Error in line: {}", line);
+                        log.error("Error parsing line in {}: {}", file.getName(), e.getMessage());
                     }
                 }
             } catch (IOException e) {
-                logger.error("Error while reading the file: {}", file.getName());
+                log.error("Error reading file {}: {}", file.getName(), e.getMessage());
             }
         }
 
-        logger.info("Event already saved: {}", allFlights.size());
+        log.info("Total flights loaded from .events: {}", allFlights.size());
         return allFlights;
+    }
+
+    private List<File> findAllEventFiles(File dir) {
+        List<File> result = new ArrayList<>();
+        File[] files = dir.listFiles();
+        if (files == null) return result;
+
+        for (File file : files) {
+            if (file.isDirectory()) {
+                result.addAll(findAllEventFiles(file));
+            } else if (file.isFile() && file.getName().endsWith(".events")) {
+                result.add(file);
+            }
+        }
+        return result;
     }
 }
