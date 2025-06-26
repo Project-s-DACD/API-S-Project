@@ -10,7 +10,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
-import java.sql.SQLException;
 import java.util.List;
 
 public class BusinessMain {
@@ -28,8 +27,7 @@ public class BusinessMain {
                     .filter(f -> f != null && f.getFlight_date() != null)
                     .toList();
 
-            logger.info("Flights ready to insert: {}", vuelosValidos.size());
-            datamart.insertFlightsIntoDatabase(vuelosValidos);
+            logger.info("Flights ready to analyze: {}", vuelosValidos.size());
             datamart.executeScriptWithProcessBuilder();
             BusinessSubscriber subscriber = new BusinessSubscriber(datamart);
             subscriber.startRealTimeSubscriber();
@@ -38,8 +36,6 @@ public class BusinessMain {
             logger.info("Starting realtime events...");
             Thread.sleep(Long.MAX_VALUE);
 
-        } catch (SQLException e) {
-            logger.error("Error in database: {}", e.getMessage());
         } catch (Exception e) {
             logger.error("General error: {}", e.getMessage(), e);
         }
