@@ -12,7 +12,6 @@
         <module>business-unit</module>
         <module>eventStoreBuilder</module>
         <module>OpenWeatherMapFeeder</module>
-        <module>src</module>
     </modules>
 
     <properties>
