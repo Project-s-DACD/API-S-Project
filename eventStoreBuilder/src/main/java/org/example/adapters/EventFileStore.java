@@ -1,4 +1,4 @@
-// src/main/java/es/ulpgc/dacd/eventstorebuilder/adapters/FileEventStore.java
+
 package org.example.adapters;
 
 import com.google.gson.*;
@@ -8,10 +8,7 @@ import java.nio.file.*;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 
-/**
- * Maneja la deserialización de eventos JSON y su almacenamiento en ficheros
- * bajo eventstore/{topic}/{ss}/{YYYYMMDD}.events
- */
+
 public class EventFileStore implements EventListener.EventHandler {
     private final Gson gson;
 
@@ -27,7 +24,6 @@ public class EventFileStore implements EventListener.EventHandler {
         String ts = obj.get("ts").getAsString();
         String ss = obj.get("ss").getAsString();
 
-        // Extraemos la fecha YYYYMMDD del campo ts (ISO-8601)
         String date = LocalDate.parse(ts.substring(0, 10))
                 .format(DateTimeFormatter.ofPattern("yyyyMMdd"));
 
