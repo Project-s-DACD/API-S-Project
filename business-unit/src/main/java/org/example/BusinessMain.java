@@ -27,7 +27,7 @@ public class BusinessMain {
 
             File flightPath = new File(args[0]);
             File weatherPath = new File(args[1]);
-            DatamartStore datamart = new DatamartStore();
+            DatamartStore datamart = new DatamartStore(new File("business-unit/datamart.db"));
             FileEventLoader flightLoader = new FileEventLoader(flightPath);
             List<Flight> flights = flightLoader.loadEvents();
             logger.info("Flights loaded: {}", flights.size());
