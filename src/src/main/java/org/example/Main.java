@@ -1,10 +1,16 @@
 package org.example;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
+
+    private static final Logger log = LoggerFactory.getLogger(Main.class);
+
     public static void main(String[] args) {
         try {
             if (args.length == 0) {
@@ -18,8 +24,7 @@ public class Main {
             scheduler.scheduleAtFixedRate(controller::run, 0, 7, TimeUnit.DAYS);
 
         } catch (Exception e) {
-            System.err.println("Unexpected error: " + e.getMessage());
-            e.printStackTrace();
+            log.error("Unexpected error: {}", e.getMessage(), e);
         }
     }
 }

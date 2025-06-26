@@ -4,12 +4,17 @@ import org.example.domain.Flight;
 import org.example.infrastructure.AviationAPI;
 import org.example.infrastructure.AviationFlightStore;
 import org.example.infrastructure.FlightPublisher;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.sql.SQLException;
 import java.util.List;
 
 public class Controller {
+
+    private static final Logger log = LoggerFactory.getLogger(Controller.class);
+
     private final AviationAPI api;
     private final AviationFlightStore flightStore;
     private final FlightPublisher publisher;
@@ -23,17 +28,16 @@ public class Controller {
     public void run() {
         try {
             List<Flight> flights = api.fetchDataFromApi().flights();
-            System.out.println("Flights ready to insert: " + flights.size());
+            log.info("Flights ready to insert: {}", flights.size());
 
             for (Flight flight : flights) {
                 publisher.publishEventInBroker(flight);
             }
 
             flightStore.insertFlightsIntoDatabase(flights);
-            System.out.println("Data processed and published successfully.");
+            log.info("Data processed and published successfully.");
         } catch (Exception e) {
-            System.err.println("Error during flight data processing: " + e.getMessage());
-            e.printStackTrace();
+            log.error("Error during flight data processing: {}", e.getMessage(), e);
         }
     }
 }

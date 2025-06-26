@@ -4,12 +4,15 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.example.domain.Flight;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FileEventLoader implements EventLoader {
+    private static final Logger logger = LoggerFactory.getLogger(FileEventLoader.class);
     private final File baseDir;
     private final Gson gson = new Gson();
 
@@ -22,13 +25,13 @@ public class FileEventLoader implements EventLoader {
         List<Flight> allFlights = new ArrayList<>();
 
         if (!baseDir.exists()) {
-            System.err.println("Couldn´t find a path: " + baseDir.getAbsolutePath());
+            logger.error("Couldn´t find a path: {}", baseDir.getAbsolutePath());
             return allFlights;
         }
 
         File[] files = baseDir.listFiles((dir, name) -> name.endsWith(".events"));
         if (files == null || files.length == 0) {
-            System.out.println("Couldn´t connect to .events in " + baseDir.getAbsolutePath());
+            logger.info("Couldn´t connect to .events in {}", baseDir.getAbsolutePath());
             return allFlights;
         }
 
@@ -43,21 +46,20 @@ public class FileEventLoader implements EventLoader {
                         if (flight != null && flight.getFlight_date() != null) {
                             allFlights.add(flight);
                         } else {
-                            System.err.println("Wrong flight type null or no date: " + data);
+                            logger.error("Wrong flight type null or no date: {}", data);
                         }
 
                         allFlights.add(flight);
                     } catch (Exception e) {
-                        System.err.println("Error in line: " + line);
+                        logger.error("Error in line: {}", line);
                     }
                 }
             } catch (IOException e) {
-                System.err.println("Error while reading the file: " + file.getName());
+                logger.error("Error while reading the file: {}", file.getName());
             }
         }
 
-        System.out.println("Event already saved: " + allFlights.size());
+        logger.info("Event already saved: {}", allFlights.size());
         return allFlights;
     }
 }
-

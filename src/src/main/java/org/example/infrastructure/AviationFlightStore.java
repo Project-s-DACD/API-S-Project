@@ -2,6 +2,8 @@ package org.example.infrastructure;
 
 import org.example.domain.Flight;
 import org.example.infrastructure.ports.DataStore;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.sql.*;
@@ -9,6 +11,7 @@ import java.util.List;
 
 public class AviationFlightStore implements DataStore<Flight> {
 
+    private static final Logger log = LoggerFactory.getLogger(AviationFlightStore.class);
 
     private static final String insertFlightSql = "INSERT OR IGNORE INTO flights(" +
             "flight_date, flight_status, departure_airport, arrival_airport, airline, departure_delay" +
@@ -24,12 +27,11 @@ public class AviationFlightStore implements DataStore<Flight> {
     @Override
     public void insertFlightsIntoDatabase(List<Flight> flights) throws SQLException {
         if (flights.isEmpty()) {
-            System.out.println("No flights ready to insert.");
+            log.info("No flights ready to insert.");
             return;
         }
         saveFlightsToDatabase(flights);
     }
-
 
     protected void createDatabase() throws SQLException {
         try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + file.getAbsolutePath())) {
@@ -41,11 +43,11 @@ public class AviationFlightStore implements DataStore<Flight> {
                         "departure_airport TEXT," +
                         "arrival_airport TEXT," +
                         "airline TEXT," +
-                        "departure_delay INTEGER,"+
+                        "departure_delay INTEGER," +
                         "UNIQUE(flight_date, airline, departure_airport, arrival_airport,departure_delay)" +
                         ");";
                 conn.createStatement().execute(createTableSQL);
-                System.out.println("Database correctly created.");
+                log.info("Database correctly created.");
             }
         }
     }
@@ -65,7 +67,7 @@ public class AviationFlightStore implements DataStore<Flight> {
             }
 
             pstmt.executeBatch();
-            System.out.println("Flights inserted into database correctly, no duplicates.");
+            log.info("Flights inserted into database correctly, no duplicates.");
         }
     }
 }

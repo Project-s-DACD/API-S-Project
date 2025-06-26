@@ -3,6 +3,8 @@ package org.example.serving;
 import org.example.domain.Flight;
 import org.example.infrastructure.AviationFlightStore;
 import org.example.infrastructure.ports.DataStore;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -10,16 +12,15 @@ import java.io.InputStreamReader;
 import java.sql.SQLException;
 
 public class DatamartFlightStore extends AviationFlightStore implements DataStore<Flight> {
+    private static final Logger logger = LoggerFactory.getLogger(DatamartFlightStore.class);
+
     public DatamartFlightStore(File file) throws SQLException {
         super(file);
     }
 
-
     public void executeScriptWithProcessBuilder() {
         try {
-
             String rutaScript = "C:/Users/agust/OneDrive/Escritorio/Uni/2º año/DAPC/Api´s project/business-unit/graficos/generarGraficos.R";
-
 
             ProcessBuilder pb = new ProcessBuilder(
                     "C:\\PROGRA~1\\R\\R-44~1.1\\bin\\x64\\Rscript.exe",
@@ -31,21 +32,19 @@ public class DatamartFlightStore extends AviationFlightStore implements DataStor
 
             new BufferedReader(new InputStreamReader(process.getInputStream()))
                     .lines()
-                    .forEach(System.out::println);
+                    .forEach(logger::info);
 
             int exitCode = process.waitFor();
             if (exitCode == 0) {
-                System.out.println("Script R ejecutado correctamente.");
+                logger.info("Script R is executing correctly.");
             } else {
-                System.err.println("El script R finalizó con código: " + exitCode);
+                logger.error("Script R already finished: {}", exitCode);
             }
 
         } catch (Exception e) {
-            System.err.println("No se pudo ejecutar Rscript: " + e.getMessage());
+            logger.error("Couldn´t execute Rscript: {}", e.getMessage());
         }
     }
-
-
 
     @Override
     public void insertFlightsIntoDatabase(java.util.List<Flight> flights) throws SQLException {
@@ -54,12 +53,10 @@ public class DatamartFlightStore extends AviationFlightStore implements DataStor
                 .toList();
 
         if (validos.isEmpty()) {
-            System.out.println("There are not flights to save.");
+            logger.info("There are not flights to save.");
             return;
         }
 
         saveFlightsToDatabase(validos);
-
     }
-
 }

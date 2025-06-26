@@ -1,13 +1,18 @@
 package org.example.infrastructure;
+
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.example.domain.Flight;
-import com.google.gson.JsonObject;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.jms.*;
 
 public class FlightPublisher {
+
+    private static final Logger log = LoggerFactory.getLogger(FlightPublisher.class);
+
     private static final String brokerUrl = "tcp://localhost:61616";
     private static final String topicName = "prediction.Flight";
     private final Gson gson = new Gson();
@@ -30,7 +35,7 @@ public class FlightPublisher {
             TextMessage message = session.createTextMessage(eventString);
             producer.send(message);
 
-            System.out.println("Published event: " + eventString);
+            log.info("Published event: {}", eventString);
 
             producer.close();
             session.close();
@@ -40,7 +45,4 @@ public class FlightPublisher {
             connection.close();
         }
     }
-
-
-
 }
