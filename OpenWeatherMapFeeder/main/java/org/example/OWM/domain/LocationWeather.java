@@ -1,11 +1,7 @@
-// src/main/java/org/example/OWM/domain/LocationWeather.java
 package org.example.OWM.domain;
 
 import java.time.Instant;
 
-/**
- * Representa un evento meteorológico con timestamp, fuente y datos de clima.
- */
 public class LocationWeather {
     private final Instant ts;
     private final String ss;
