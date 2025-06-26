@@ -8,7 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -27,10 +26,6 @@ public class Controller {
         this.storage  = storage;
     }
 
-    /**
-     * Arranca el ciclo: cada hora obtiene el clima para todas
-     * las ciudades que gestiona el provider y lo guarda.
-     */
     public void execute() {
         log.info("Arrancando fetch periódico de clima cada hora");
         Executors.newSingleThreadScheduledExecutor()

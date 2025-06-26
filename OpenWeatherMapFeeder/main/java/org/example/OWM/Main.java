@@ -16,16 +16,14 @@ public class Main {
             return;
         }
 
-        String baseUrl   = args[0];          // e.g. https://api.openweathermap.org/data/2.5/weather
-        String apiKey    = args[1];          // tu API key de OWM
-        String brokerUrl = args[2];          // e.g. tcp://localhost:61616
+        String baseUrl   = args[0];
+        String apiKey    = args[1];
+        String brokerUrl = args[2];
 
-        // Coordenadas fijas definidas directamente en el código:
         List<double[]> coords = List.of(
                 new double[]{27.929655298285752, -15.387054443145411}
         );
 
-        // Creamos el provider y el storage justo con esas coords
         var provider = new OpenWeatherMapProvider(baseUrl, apiKey, coords);
         var storage  = new ActiveMqWeatherStorage(brokerUrl);
 

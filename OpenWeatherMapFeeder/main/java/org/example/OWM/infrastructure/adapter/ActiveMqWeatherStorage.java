@@ -1,4 +1,3 @@
-// src/main/java/org/example/OWM/infrastructure/adapter/ActiveMqWeatherStorage.java
 package org.example.OWM.infrastructure.adapter;
 
 import com.google.gson.Gson;
@@ -18,9 +17,6 @@ import javax.jms.TextMessage;
 import javax.jms.Topic;
 import java.time.Instant;
 
-/**
- * Envía eventos meteorológicos a un topic de ActiveMQ.
- */
 public class ActiveMqWeatherStorage implements WeatherStorage {
     private static final Logger log = LoggerFactory.getLogger(ActiveMqWeatherStorage.class);
 
@@ -28,9 +24,6 @@ public class ActiveMqWeatherStorage implements WeatherStorage {
     private final ActiveMqManager manager;
     private static final String TOPIC_NAME = "Weather";
 
-    /**
-     * @param brokerUrl URL de conexión a ActiveMQ (p.ej. tcp://localhost:61616)
-     */
     public ActiveMqWeatherStorage(String brokerUrl) {
         this.gson = new GsonBuilder()
                 .registerTypeAdapter(Instant.class, (JsonSerializer<Instant>) (src, typeOfSrc, context) ->
