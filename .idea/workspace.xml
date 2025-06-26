@@ -4,26 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bdcfcd7-dc1f-4138-836d-5a4d5705597d" name="Changes" comment="Problemas solucionados y columna delay  V 3.2.3">
+    <list default="true" id="1bdcfcd7-dc1f-4138-836d-5a4d5705597d" name="Changes" comment="Problemas solucionados, falta eventStoreBuilder V 3.2.6">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/business-unit/datamart.db" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/datamart.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/business-unit/graficos/grafico_test2.png" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/graficos/grafico_test2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventStoreBuilder/src/main/java/org/example/subscriber/FlightSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/eventStoreBuilder/src/main/java/org/example/subscriber/FlightSubscriber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventStoreBuilder/src/main/java/org/example/subscriber/SubscriberMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/eventStoreBuilder/src/main/java/org/example/subscriber/SubscriberMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventStoreBuilder/target/classes/org/example/subscriber/FlightSubscriber.class" beforeDir="false" afterPath="$PROJECT_DIR$/eventStoreBuilder/target/classes/org/example/subscriber/FlightSubscriber.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventStoreBuilder/target/classes/org/example/subscriber/SubscriberMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/eventStoreBuilder/target/classes/org/example/subscriber/SubscriberMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventstore/prediction.Flight/AviationStackFeeder/20250625.events" beforeDir="false" afterPath="$PROJECT_DIR$/eventstore/prediction.Flight/AviationStackFeeder/20250625.events" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flights.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/main/java/org/example/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/org/example/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/main/java/org/example/domain/Flight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/org/example/domain/Flight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/main/java/org/example/infrastructure/AviationAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/org/example/infrastructure/AviationAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/main/java/org/example/infrastructure/AviationFlightStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/org/example/infrastructure/AviationFlightStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/DataManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/org/example/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/domain/Flight.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/org/example/domain/Flight.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/AviationAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/AviationAPI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/AviationFlightStore.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/AviationFlightStore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/org/example/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/org/example/Controller.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +95,7 @@
       <recent name="C:\Users\agust\OneDrive\Escritorio\Uni\2º año\DAPC\Api´s project\src\src\main\java\org\example\domain" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.BusinessMain">
+  <component name="RunManager" selected="Application.SubscriberMain">
     <configuration name="BusinessMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.BusinessMain" />
       <module name="business-unit" />
@@ -311,7 +294,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750860617260</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Problemas solucionados, falta eventStoreBuilder V 3.2.6">
+      <option name="closed" value="true" />
+      <created>1750936801393</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1750936801393</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -370,7 +361,8 @@
     <MESSAGE value="Recovering classes  V 3.2.0" />
     <MESSAGE value="Checking classes  V 3.2.1" />
     <MESSAGE value="Problemas solucionados y columna delay  V 3.2.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Problemas solucionados y columna delay  V 3.2.3" />
+    <MESSAGE value="Problemas solucionados, falta eventStoreBuilder V 3.2.6" />
+    <option name="LAST_COMMIT_MESSAGE" value="Problemas solucionados, falta eventStoreBuilder V 3.2.6" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
