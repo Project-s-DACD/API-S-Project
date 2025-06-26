@@ -30,16 +30,14 @@ public class Controller {
         log.info("Arrancando fetch periódico de clima cada hora");
         Executors.newSingleThreadScheduledExecutor()
                 .scheduleAtFixedRate(() -> {
-                            // Solo llamamos a provide() una vez
                             List<LocationWeather> all = provider.provide();
                             for (LocationWeather w : all) {
-                                // w.getCity() viene de tu POJO, que ahora lleva el campo city
                                 storage.save(w);
                                 log.info("Saved weather for {}: {}", w.getCity(), w);
                             }
                         },
-                        0,               // initial delay
-                        1,               // period
+                        0,
+                        1,
                         TimeUnit.HOURS
                 );
     }

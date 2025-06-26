@@ -40,7 +40,6 @@ public class ActiveMqWeatherStorage implements WeatherStorage {
         try {
             connection = manager.createConnection();
             session = manager.createSession(connection);
-            // Publicar en topic en lugar de cola
             Topic topic = session.createTopic(TOPIC_NAME);
             producer = session.createProducer(topic);
 

@@ -25,7 +25,6 @@ public class OpenWeatherMapClient {
     public OpenWeatherMapClient(String baseUrl, String apiKey, List<double[]> coords) {
         this.baseUrl = baseUrl;
         this.apiKey = apiKey;
-        // guardamos una copia inmutable de las coordenadas
         this.coords = Collections.unmodifiableList(new ArrayList<>(coords));
     }
 
