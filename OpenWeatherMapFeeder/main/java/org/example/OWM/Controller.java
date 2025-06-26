@@ -17,8 +17,6 @@ public class Controller {
 
     private final WeatherProvider provider;
     private final WeatherStorage  storage;
-    private final ScheduledExecutorService scheduler =
-            Executors.newSingleThreadScheduledExecutor();
 
     public Controller(WeatherProvider provider,
                       WeatherStorage storage) {
