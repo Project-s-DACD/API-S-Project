@@ -1,4 +1,4 @@
-package main.java.org.example.OWM.infrastructure.adapter;
+package org.example.OWM.infrastructure.adapter;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 

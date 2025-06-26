@@ -1,7 +1,7 @@
-package main.java.org.example.OWM.infrastructure.adapter;
+package org.example.OWM.infrastructure.adapter;
 
 import com.google.gson.JsonObject;
-import main.java.org.example.OWM.domain.LocationWeather;
+import org.example.OWM.domain.LocationWeather;
 
 public class WeatherConverter {
 

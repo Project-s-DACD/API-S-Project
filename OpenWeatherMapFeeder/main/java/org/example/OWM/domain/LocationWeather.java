@@ -1,4 +1,4 @@
-package main.java.org.example.OWM.domain;
+package org.example.OWM.domain;
 
 public class LocationWeather {
     private final String city;

@@ -1,12 +1,12 @@
 // src/main/java/org/example/OWM/infrastructure/adapter/ActiveMqWeatherStorage.java
-package main.java.org.example.OWM.infrastructure.adapter;
+package org.example.OWM.infrastructure.adapter;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializer;
-import main.java.org.example.OWM.domain.LocationWeather;
-import main.java.org.example.OWM.infrastructure.ports.WeatherStorage;
+import org.example.OWM.domain.LocationWeather;
+import org.example.OWM.infrastructure.ports.WeatherStorage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
