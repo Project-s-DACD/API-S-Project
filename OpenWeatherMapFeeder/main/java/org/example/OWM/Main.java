@@ -1,9 +1,10 @@
-package main.java.org.example.OWM;
+package org.example.OWM;
 
-import main.java.org.example.OWM.infrastructure.OpenWeatherMapClient;
-import main.java.org.example.OWM.infrastructure.adapter.ActiveMqWeatherStorage;
-import main.java.org.example.OWM.infrastructure.ports.WeatherProvider;
-import main.java.org.example.OWM.infrastructure.ports.WeatherStorage;
+import org.example.OWM.infrastructure.OpenWeatherMapClient;
+import org.example.OWM.infrastructure.adapter.ActiveMqWeatherStorage;
+import org.example.OWM.infrastructure.ports.WeatherProvider;
+import org.example.OWM.infrastructure.ports.WeatherStorage;
+import org.example.OWM.Controller;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
-package main.java.org.example.OWM;
+package org.example.OWM;
 
-import main.java.org.example.OWM.domain.LocationWeather;
-import main.java.org.example.OWM.infrastructure.ports.WeatherProvider;
-import main.java.org.example.OWM.infrastructure.ports.WeatherStorage;
+import org.example.OWM.domain.LocationWeather;
+import org.example.OWM.infrastructure.ports.WeatherProvider;
+import org.example.OWM.infrastructure.ports.WeatherStorage;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,14 +1,14 @@
 // src/main/java/org/example/OWM/infrastructure/adapter/OpenWeatherMapClient.java
-package main.java.org.example.OWM.infrastructure;
+package org.example.OWM.infrastructure;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import main.java.org.example.OWM.infrastructure.adapter.WeatherConverter;
-import main.java.org.example.OWM.infrastructure.ports.WeatherProvider;
+import org.example.OWM.infrastructure.adapter.WeatherConverter;
+import org.example.OWM.infrastructure.ports.WeatherProvider;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import main.java.org.example.OWM.domain.LocationWeather;
+import org.example.OWM.domain.LocationWeather;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
