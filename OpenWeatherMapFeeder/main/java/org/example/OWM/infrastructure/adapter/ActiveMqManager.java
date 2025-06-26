@@ -4,8 +4,6 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.Connection;
 import javax.jms.JMSException;
-import javax.jms.MessageProducer;
-import javax.jms.Queue;
 import javax.jms.Session;
 
 

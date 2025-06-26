@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class Controller {
@@ -25,7 +24,7 @@ public class Controller {
     }
 
     public void execute() {
-        log.info("Arrancando fetch periódico de clima cada hora");
+        log.info("Arrancando fetch periódico de clima cada 20 minutos");
         Executors.newSingleThreadScheduledExecutor()
                 .scheduleAtFixedRate(() -> {
                             List<LocationWeather> all = provider.provide();
