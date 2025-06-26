@@ -4,7 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bdcfcd7-dc1f-4138-836d-5a4d5705597d" name="Changes" comment="Problemas solucionados y columna delay  V 3.2.3" />
+    <list default="true" id="1bdcfcd7-dc1f-4138-836d-5a4d5705597d" name="Changes" comment="Problemas solucionados con eventStoreBuilder V 3.2.7">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/OpenWeatherMapFeeder/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/datamart.db" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/datamart.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/graficos/grafico_test2.png" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/graficos/grafico_test2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/src/main/java/org/example/serving/DatamartFlightStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/src/main/java/org/example/serving/DatamartFlightStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/target/classes/org/example/BusinessMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/target/classes/org/example/BusinessMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/target/classes/org/example/batch/EventLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/target/classes/org/example/batch/EventLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/target/classes/org/example/batch/FileEventLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/target/classes/org/example/batch/FileEventLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/target/classes/org/example/serving/BusinessCli.class" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/target/classes/org/example/serving/BusinessCli.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/target/classes/org/example/serving/DatamartFlightStore.class" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/target/classes/org/example/serving/DatamartFlightStore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/target/classes/org/example/speed/BusinessSubscriber.class" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/target/classes/org/example/speed/BusinessSubscriber.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventStoreBuilder/src/main/java/org/example/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/eventStoreBuilder/src/main/java/org/example/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventStoreBuilder/src/main/java/org/example/adapters/EventFileStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/eventStoreBuilder/src/main/java/org/example/adapters/EventFileStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventStoreBuilder/src/main/java/org/example/adapters/EventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/eventStoreBuilder/src/main/java/org/example/adapters/EventListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventStoreBuilder/target/classes/org/example/subscriber/EventStoreException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventStoreBuilder/target/classes/org/example/subscriber/FlightSubscriber.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventStoreBuilder/target/classes/org/example/subscriber/SubscriberMain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventstore/prediction.Flight/AviationStackFeeder/20250626.events" beforeDir="false" afterPath="$PROJECT_DIR$/eventstore/prediction.Flight/AviationStackFeeder/20250626.events" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flights.db" beforeDir="false" afterPath="$PROJECT_DIR$/flights.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/org/example/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/org/example/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/domain/Flight.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/org/example/domain/Flight.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/AviationAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/AviationAPI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/AviationFlightStore.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/AviationFlightStore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/AviationProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/AviationProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/FlightPublisher.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/FlightPublisher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/ports/DataProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/ports/DataProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/ports/DataStore.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/ports/DataStore.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,6 +65,9 @@
     &quot;assignee&quot;: &quot;Agustin-Casebonne&quot;
   }
 }</component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="fb4da4ac-25a0-461e-9417-eca3203c6d30" />
+  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Project-s-DACD/API-S-Project.git&quot;,
@@ -57,27 +93,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.AviationAPI.executor&quot;: &quot;Run&quot;,
-    &quot;Application.BusinessMain.executor&quot;: &quot;Run&quot;,
-    &quot;Application.EuroStatAPI.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainConMiApiKey.executor&quot;: &quot;Run&quot;,
-    &quot;Application.SubscriberMain.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ViewDatabase.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/agust/OneDrive/Escritorio/Uni/2º año/DAPC/Api´s project&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/agust/OneDrive/Escritorio/Uni/2º año/DAPC/Api´s project/business-unit/graficos/src/main/java/org/example/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AviationAPI.executor": "Run",
+    "Application.BusinessMain.executor": "Run",
+    "Application.EuroStatAPI.executor": "Run",
+    "Application.EventMain.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.MainConMiApiKey.executor": "Run",
+    "Application.SubscriberMain.executor": "Run",
+    "Application.ViewDatabase.executor": "Run",
+    "Application.WeatherMain.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/agust/OneDrive/Escritorio/Uni/2º año/DAPC/Api´s project",
+    "onboarding.tips.debug.path": "C:/Users/agust/OneDrive/Escritorio/Uni/2º año/DAPC/Api´s project/business-unit/graficos/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\agust\OneDrive\Escritorio\Uni\2º año\DAPC\Api´s project" />
@@ -89,7 +128,7 @@
       <recent name="C:\Users\agust\OneDrive\Escritorio\Uni\2º año\DAPC\Api´s project\src\src\main\java\org\example\domain" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.OWMAPI">
+  <component name="RunManager" selected="Application.MainConMiApiKey">
     <configuration name="BusinessMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.BusinessMain" />
       <module name="business-unit" />
@@ -104,29 +143,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainConMiApiKey" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-23" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <configuration name="EventMain" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
-      <module name="AviationStackFeeder" />
-      <option name="PROGRAM_PARAMETERS" value="9d9efea6c0c3f692ff8545bd0d610f13" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OWMAPI" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="corretto-21" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="org.example.OWM.Main" />
-      <module name="owmapi" />
-      <option name="PROGRAM_PARAMETERS" value="https://api.openweathermap.org/data/2.5/weather dd31367323b49b958696539677d34e0b tcp://localhost:8161" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SubscriberMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.subscriber.SubscriberMain" />
       <module name="eventStoreBuilder" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;tcp://localhost:61616&quot;  &quot;event-store-builder-1&quot; &quot;eventstore&quot; &quot;prediction.Flight&quot;" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.example.subscriber.*" />
@@ -137,18 +157,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainConMiApiKey" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-23" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+      <module name="AviationStackFeeder" />
+      <option name="PROGRAM_PARAMETERS" value="http://api.aviationstack.com/v1/flights?access_key=9d9efea6c0c3f692ff8545bd0d610f13&amp;arr_icao=GCLP&amp;flight_status=landed " />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WeatherMain" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="org.example.OWM.Main" />
+      <module name="owmapi" />
+      <option name="PROGRAM_PARAMETERS" value="https://api.openweathermap.org/data/2.5/weather dd31367323b49b958696539677d34e0b tcp://localhost:8161" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.MainConMiApiKey" />
-      <item itemvalue="Application.OWMAPI" />
+      <item itemvalue="Application.WeatherMain" />
       <item itemvalue="Application.BusinessMain" />
-      <item itemvalue="Application.SubscriberMain" />
+      <item itemvalue="Application.EventMain" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.BusinessMain" />
-        <item itemvalue="Application.SubscriberMain" />
+        <item itemvalue="Application.EventMain" />
         <item itemvalue="Application.BusinessMain" />
-        <item itemvalue="Application.SubscriberMain" />
+        <item itemvalue="Application.EventMain" />
         <item itemvalue="Application.BusinessMain" />
       </list>
     </recent_temporary>
@@ -298,7 +336,23 @@
       <option name="project" value="LOCAL" />
       <updated>1750860617260</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Problemas solucionados, falta eventStoreBuilder V 3.2.6">
+      <option name="closed" value="true" />
+      <created>1750936801393</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1750936801393</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Problemas solucionados con eventStoreBuilder V 3.2.7">
+      <option name="closed" value="true" />
+      <created>1750937190840</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1750937190840</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -357,7 +411,9 @@
     <MESSAGE value="Recovering classes  V 3.2.0" />
     <MESSAGE value="Checking classes  V 3.2.1" />
     <MESSAGE value="Problemas solucionados y columna delay  V 3.2.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Problemas solucionados y columna delay  V 3.2.3" />
+    <MESSAGE value="Problemas solucionados, falta eventStoreBuilder V 3.2.6" />
+    <MESSAGE value="Problemas solucionados con eventStoreBuilder V 3.2.7" />
+    <option name="LAST_COMMIT_MESSAGE" value="Problemas solucionados con eventStoreBuilder V 3.2.7" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

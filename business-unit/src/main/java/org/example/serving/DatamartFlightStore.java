@@ -59,8 +59,6 @@ public class DatamartFlightStore extends AviationFlightStore implements DataStor
         }
 
         saveFlightsToDatabase(validos);
-        executeScriptWithProcessBuilder();
-
 
     }
 
