@@ -4,37 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bdcfcd7-dc1f-4138-836d-5a4d5705597d" name="Changes" comment="FINAL3 OWMAPI">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="1bdcfcd7-dc1f-4138-836d-5a4d5705597d" name="Changes" comment="Problemas solucionados y columna delay  V 3.2.3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/main/java/org/example/OWM/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/OpenWeatherMapFeeder/main/java/org/example/OWM/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/main/java/org/example/OWM/domain/LocationWeather.java" beforeDir="false" afterPath="$PROJECT_DIR$/OpenWeatherMapFeeder/main/java/org/example/OWM/domain/LocationWeather.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/main/java/org/example/OWM/infrastructure/OpenWeatherMapClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/OpenWeatherMapFeeder/main/java/org/example/OWM/infrastructure/OpenWeatherMapClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/main/java/org/example/OWM/infrastructure/adapter/ActiveMqWeatherStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/OpenWeatherMapFeeder/main/java/org/example/OWM/infrastructure/adapter/ActiveMqWeatherStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/main/java/org/example/OWM/infrastructure/adapter/OpenWeatherMapProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/OpenWeatherMapFeeder/main/java/org/example/OWM/infrastructure/adapter/OpenWeatherMapProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/main/java/org/example/OWM/infrastructure/adapter/WeatherConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/OpenWeatherMapFeeder/main/java/org/example/OWM/infrastructure/adapter/WeatherConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/target/classes/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/target/classes/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/target/classes/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/target/classes/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/target/classes/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/target/classes/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/target/classes/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/target/classes/main/java/org/example/OWM/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/target/classes/main/java/org/example/OWM/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/target/classes/main/java/org/example/OWM/domain/LocationWeather.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/target/classes/main/java/org/example/OWM/infrastructure/OpenWeatherMapClient.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/target/classes/main/java/org/example/OWM/infrastructure/adapter/ActiveMqManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/target/classes/main/java/org/example/OWM/infrastructure/adapter/ActiveMqWeatherStorage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/target/classes/main/java/org/example/OWM/infrastructure/adapter/OpenWeatherMapProvider.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/target/classes/main/java/org/example/OWM/infrastructure/adapter/WeatherConverter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/target/classes/main/java/org/example/OWM/infrastructure/ports/WeatherProvider.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/target/classes/main/java/org/example/OWM/infrastructure/ports/WeatherStorage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/target/classes/main/owmapi.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/target/classes/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/target/classes/target/classes/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/target/classes/target/classes/target/classes/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/target/classes/weather.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/graficos/grafico_test2.png" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/graficos/grafico_test2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventStoreBuilder/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eventStoreBuilder/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventstore/prediction.Flight/AviationStackFeeder/20250625.events" beforeDir="false" afterPath="$PROJECT_DIR$/eventstore/prediction.Flight/AviationStackFeeder/20250625.events" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flights.db" beforeDir="false" afterPath="$PROJECT_DIR$/flights.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,12 +39,15 @@
     &quot;assignee&quot;: &quot;Agustin-Casebonne&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Project-s-DACD/API-S-Project",
-    "accountId": "f685da12-1db2-471a-a40a-8fafcc452a6b"
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="fb4da4ac-25a0-461e-9417-eca3203c6d30" />
+  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Project-s-DACD/API-S-Project.git&quot;,
+    &quot;accountId&quot;: &quot;fb4da4ac-25a0-461e-9417-eca3203c6d30&quot;
   }
-}]]></component>
+}</component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -88,34 +67,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.AviationAPI.executor": "Run",
-    "Application.BusinessMain.executor": "Run",
-    "Application.EuroStatAPI.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.MainConMiApiKey.executor": "Run",
-    "Application.OWM_API.executor": "Run",
-    "Application.SubscriberMain.executor": "Run",
-    "Application.ViewDatabase.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/agust/OneDrive/Escritorio/Uni/2º año/DAPC/Api´s project",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/agust/OneDrive/Escritorio/Uni/2º año/DAPC/Api´s project/business-unit/graficos/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.AviationAPI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.BusinessMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.EuroStatAPI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainConMiApiKey.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SubscriberMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ViewDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/agust/OneDrive/Escritorio/Uni/2º año/DAPC/Api´s project&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/agust/OneDrive/Escritorio/Uni/2º año/DAPC/Api´s project/business-unit/graficos/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\agust\OneDrive\Escritorio\Uni\2º año\DAPC\Api´s project" />
@@ -127,7 +99,7 @@
       <recent name="C:\Users\agust\OneDrive\Escritorio\Uni\2º año\DAPC\Api´s project\src\src\main\java\org\example\domain" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.OWM_API">
+  <component name="RunManager" selected="Application.BusinessMain">
     <configuration name="BusinessMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.BusinessMain" />
       <module name="business-unit" />
@@ -152,16 +124,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OWM_API" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="corretto-21" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="org.example.OWM.Main" />
-      <module name="owmapi" />
-      <option name="PROGRAM_PARAMETERS" value="https://api.openweathermap.org/data/2.5/weather dd31367323b49b958696539677d34e0b tcp://localhost:61616" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="SubscriberMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.subscriber.SubscriberMain" />
       <module name="eventStoreBuilder" />
@@ -177,7 +139,6 @@
     </configuration>
     <list>
       <item itemvalue="Application.MainConMiApiKey" />
-      <item itemvalue="Application.OWM_API" />
       <item itemvalue="Application.BusinessMain" />
       <item itemvalue="Application.SubscriberMain" />
     </list>
@@ -191,14 +152,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -207,7 +160,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1742472655548</updated>
-      <workItem from="1750930875678" duration="6568000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit v0">
       <option name="closed" value="true" />
@@ -345,19 +297,8 @@
       <option name="project" value="LOCAL" />
       <updated>1750860617260</updated>
     </task>
-    <task id="LOCAL-00018" summary="FINAL3 OWMAPI">
-      <option name="closed" value="true" />
-      <created>1750932787092</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1750932787092</updated>
-    </task>
-    <option name="localTasksCounter" value="19" />
+    <option name="localTasksCounter" value="18" />
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="RECENT_FILTERS">
@@ -415,8 +356,7 @@
     <MESSAGE value="Recovering classes  V 3.2.0" />
     <MESSAGE value="Checking classes  V 3.2.1" />
     <MESSAGE value="Problemas solucionados y columna delay  V 3.2.3" />
-    <MESSAGE value="FINAL3 OWMAPI" />
-    <option name="LAST_COMMIT_MESSAGE" value="FINAL3 OWMAPI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Problemas solucionados y columna delay  V 3.2.3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

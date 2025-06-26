@@ -4,8 +4,9 @@ import javax.jms.JMSException;
 
 public class SubscriberMain {
     public static void main(String[] args) {
+        String brokerUrl = args[0];
         try {
-            FlightSubscriber subscriber = new FlightSubscriber();
+            FlightSubscriber subscriber = new FlightSubscriber(brokerUrl);
             subscriber.startConnectionToBroker();
         } catch (JMSException e) {
             System.err.println("Error while connecting to ActiveMQ.");
