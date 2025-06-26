@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bdcfcd7-dc1f-4138-836d-5a4d5705597d" name="Changes" comment="Problemas solucionados y columna delay  V 3.2.3">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/business-unit/graficos/grafico_test2.png" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/graficos/grafico_test2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/business-unit/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventStoreBuilder/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eventStoreBuilder/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventstore/prediction.Flight/AviationStackFeeder/20250625.events" beforeDir="false" afterPath="$PROJECT_DIR$/eventstore/prediction.Flight/AviationStackFeeder/20250625.events" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flights.db" beforeDir="false" afterPath="$PROJECT_DIR$/flights.db" afterDir="false" />
-    </list>
+    <list default="true" id="1bdcfcd7-dc1f-4138-836d-5a4d5705597d" name="Changes" comment="Problemas solucionados y columna delay  V 3.2.3" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,9 +32,6 @@
     &quot;assignee&quot;: &quot;Agustin-Casebonne&quot;
   }
 }</component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="fb4da4ac-25a0-461e-9417-eca3203c6d30" />
-  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Project-s-DACD/API-S-Project.git&quot;,
@@ -99,7 +89,7 @@
       <recent name="C:\Users\agust\OneDrive\Escritorio\Uni\2º año\DAPC\Api´s project\src\src\main\java\org\example\domain" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.BusinessMain">
+  <component name="RunManager" selected="Application.OWMAPI">
     <configuration name="BusinessMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.BusinessMain" />
       <module name="business-unit" />
@@ -124,6 +114,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="OWMAPI" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="org.example.OWM.Main" />
+      <module name="owmapi" />
+      <option name="PROGRAM_PARAMETERS" value="https://api.openweathermap.org/data/2.5/weather dd31367323b49b958696539677d34e0b tcp://localhost:8161" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SubscriberMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.subscriber.SubscriberMain" />
       <module name="eventStoreBuilder" />
@@ -139,6 +139,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.MainConMiApiKey" />
+      <item itemvalue="Application.OWMAPI" />
       <item itemvalue="Application.BusinessMain" />
       <item itemvalue="Application.SubscriberMain" />
     </list>
