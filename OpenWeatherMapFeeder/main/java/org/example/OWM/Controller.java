@@ -24,7 +24,7 @@ public class Controller {
     }
 
     public void execute() {
-        log.info("Arrancando fetch periódico de clima cada 20 minutos");
+        log.info("fetching weather info");
         Executors.newSingleThreadScheduledExecutor()
                 .scheduleAtFixedRate(() -> {
                             List<LocationWeather> all = provider.provide();

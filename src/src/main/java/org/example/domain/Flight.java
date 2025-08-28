@@ -15,7 +15,7 @@ public class Flight {
     public Flight() {
     }
 
-    // CONSTRUCTOR COMPLETO CORREGIDO
+
     public Flight(String flight_date, String flight_status, String departure_airport,
                   String arrival_airport, String airline, String flightNumber,
                   int id, Integer departure_delay, String ts, String ss) {
@@ -36,9 +36,9 @@ public class Flight {
     public String getDeparture_airport() { return departure_airport; }
     public String getArrival_airport() { return arrival_airport; }
     public String getAirline() { return airline; }
-    public String getFlightNumber() { return flightNumber; } // CAMBIO: getter para flightNumber
+    public String getFlightNumber() { return flightNumber; }
     public int getId() { return id; }
-    public int getDeparture_delay() { return departure_delay != null ? departure_delay : 0; } // mejor
+    public int getDeparture_delay() { return departure_delay != null ? departure_delay : 0; }
     public int getDepartureDelayOrZero() { return departure_delay != null ? departure_delay : 0; }
     public String getTs() { return ts; }
     public String getSs() { return ss; }

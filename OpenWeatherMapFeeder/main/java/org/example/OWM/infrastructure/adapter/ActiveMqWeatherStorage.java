@@ -48,11 +48,11 @@ public class ActiveMqWeatherStorage implements WeatherStorage {
             producer.send(message);
             log.info("Published weather event to topic {}: {}", TOPIC_NAME, payload);
         } catch (Exception e) {
-            log.error("Error publicando weather event: {}", e.getMessage(), e);
+            log.error("Error publishing weather event: {}", e.getMessage(), e);
         } finally {
-            try { if (producer   != null) producer.close();   } catch (JMSException ignored) { log.warn("Error cerrando producer: {}", ignored.getMessage()); }
-            try { if (session    != null) session.close();    } catch (JMSException ignored) { log.warn("Error cerrando session: {}", ignored.getMessage()); }
-            try { if (connection != null) connection.close(); } catch (JMSException ignored) { log.warn("Error cerrando connection: {}", ignored.getMessage()); }
+            try { if (producer   != null) producer.close();   } catch (JMSException ignored) { log.warn("Error closing producer: {}", ignored.getMessage()); }
+            try { if (session    != null) session.close();    } catch (JMSException ignored) { log.warn("Error closing session: {}", ignored.getMessage()); }
+            try { if (connection != null) connection.close(); } catch (JMSException ignored) { log.warn("Error closing connection: {}", ignored.getMessage()); }
         }
     }
 }

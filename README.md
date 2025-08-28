@@ -50,7 +50,7 @@ The system is structured around three key modules:
 ### 📊Visual Samples
 
 ![CanariaAirFlow - WordCloud](business-unit/graficos/grafico_test2.png)
-
+![CanariaAirFlow - bars](business-unit/graficos/grafico_test.png)
 
 ## 📄 Authors
 
