@@ -14,7 +14,6 @@ import javax.jms.*;
 import java.util.List;
 
 public class BusinessSubscriber {
-
     private static final Logger logger = LoggerFactory.getLogger(BusinessSubscriber.class);
     private static final String brokerUrl = "tcp://localhost:61616";
     private static final String topicName = "prediction.Flight";
@@ -41,17 +40,21 @@ public class BusinessSubscriber {
                 try {
                     String json = textMessage.getText();
                     JsonObject event = JsonParser.parseString(json).getAsJsonObject();
+
+                    String ts = event.get("ts").getAsString();
                     String source = event.get("ss").getAsString();
 
                     if ("AviationStackFeeder".equals(source)) {
                         JsonObject data = event.getAsJsonObject("data");
                         Flight flight = gson.fromJson(data, Flight.class);
+
                         if (flight != null && flight.getFlight_date() != null) {
                             datamart.insertFlights(List.of(flight));
                             logger.info("Received and saved flight: {}", flight.getFlight_date());
                         } else {
                             logger.error("Invalid flight: {}", data);
                         }
+
                     } else if ("feeder-OWM".equals(source)) {
                         LocationWeather weather = gson.fromJson(event, LocationWeather.class);
                         if (weather != null && weather.getCity() != null) {
@@ -60,6 +63,7 @@ public class BusinessSubscriber {
                         } else {
                             logger.error("Invalid weather: {}", event);
                         }
+
                     } else {
                         logger.warn("Unknown source '{}', skipping", source);
                     }

@@ -22,6 +22,12 @@ public class DatamartStore implements AutoCloseable {
             throw new SQLException("SQLite JDBC driver not found", e);
         }
         this.conn = DriverManager.getConnection("jdbc:sqlite:business-unit/datamart.db");
+
+        try (Statement s = conn.createStatement()) {
+            s.executeUpdate("DROP TABLE IF EXISTS flights");
+            s.executeUpdate("DROP TABLE IF EXISTS weather");
+        }
+
         createTables();
     }
 
@@ -29,18 +35,22 @@ public class DatamartStore implements AutoCloseable {
         try (Statement s = conn.createStatement()) {
             s.executeUpdate("""
                 CREATE TABLE IF NOT EXISTS flights (
-                    id INTEGER PRIMARY KEY,
+                    ts TEXT PRIMARY KEY,
+                    ss TEXT,
+                    id INTEGER,
                     flight_date TEXT,
                     flight_status TEXT,
+                    flightNumber TEXT,
                     departure_airport TEXT,
                     arrival_airport TEXT,
                     airline TEXT,
                     departure_delay INTEGER
                 )
             """);
+
             s.executeUpdate("""
                 CREATE TABLE IF NOT EXISTS weather (
-                    ts TEXT,
+                    ts TEXT PRIMARY KEY,
                     ss TEXT,
                     city TEXT,
                     temperature REAL,
@@ -56,16 +66,18 @@ public class DatamartStore implements AutoCloseable {
 
     public void insertFlight(Flight f) throws SQLException {
         try (PreparedStatement ps = conn.prepareStatement(
-                "INSERT OR IGNORE INTO flights(id,flight_date,flight_status,departure_airport,arrival_airport,airline,departure_delay) VALUES (?,?,?,?,?,?,?)"
+                "INSERT OR IGNORE INTO flights(ts, ss, id, flight_date, flight_status, flightNumber, departure_airport, arrival_airport, airline, departure_delay) VALUES (?,?,?,?,?,?,?,?,?,?)"
         )) {
-            ps.setInt(1, f.getId());
-            ps.setString(2, f.getFlight_date());
-            ps.setString(3, f.getFlight_status());
-            ps.setString(4, f.getDeparture_airport());
-            ps.setString(5, f.getArrival_airport());
-            ps.setString(6, f.getAirline());
-            // Manejo seguro de departure_delay nulo:
-            ps.setInt(7, f.getDepartureDelayOrZero());
+            ps.setString(1, f.getTs());
+            ps.setString(2, f.getSs());
+            ps.setInt(3, f.getId());
+            ps.setString(4, f.getFlight_date());
+            ps.setString(5, f.getFlight_status());
+            ps.setString(6, "");            // flightNumber vacío por ahora, si lo quieres agregar, modifica Flight
+            ps.setString(7, f.getDeparture_airport());
+            ps.setString(8, f.getArrival_airport());
+            ps.setString(9, f.getAirline());
+            ps.setInt(10, f.getDepartureDelayOrZero());
             ps.executeUpdate();
         }
     }
@@ -73,14 +85,14 @@ public class DatamartStore implements AutoCloseable {
     public void insertFlights(List<Flight> flights) throws SQLException {
         for (Flight f : flights) {
             if (f != null && f.getFlight_date() != null) {
-                insertFlight(f);
+                insertFlight(f);  // solo Flight
             }
         }
     }
 
     public void insertWeather(LocationWeather w) throws SQLException {
         try (PreparedStatement ps = conn.prepareStatement(
-                "INSERT INTO weather(ts,ss,city,temperature,humidity,visibility,windSpeed,precipitation,cloudiness) VALUES(?,?,?,?,?,?,?,?,?)"
+                "INSERT OR IGNORE INTO weather(ts, ss, city, temperature, humidity, visibility, windSpeed, precipitation, cloudiness) VALUES(?,?,?,?,?,?,?,?,?)"
         )) {
             ps.setString(1, w.getTs().toString());
             ps.setString(2, w.getSs());

@@ -3,7 +3,6 @@ package org.example.batch;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.example.OWM.domain.LocationWeather;
-
 import java.io.*;
 import java.time.Instant;
 import java.util.ArrayList;

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/OpenWeatherMapFeeder/owmapi.iml" filepath="$PROJECT_DIR$/OpenWeatherMapFeeder/owmapi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OpenWeatherMapFeeder/OpenWeatherMapFeeder.iml" filepath="$PROJECT_DIR$/OpenWeatherMapFeeder/OpenWeatherMapFeeder.iml" />
     </modules>
   </component>
 </project>

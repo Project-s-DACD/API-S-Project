@@ -1,6 +1,5 @@
 package org.example.batch;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.example.domain.Flight;
@@ -11,27 +10,22 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileEventLoader implements EventLoader {
+public class FileEventLoader {
     private static final Logger log = LoggerFactory.getLogger(FileEventLoader.class);
-
     private final File baseDir;
-    private final Gson gson = new Gson();
 
     public FileEventLoader(File baseDir) {
         this.baseDir = baseDir;
     }
 
-    @Override
     public List<Flight> loadEvents() {
         List<Flight> allFlights = new ArrayList<>();
-
         if (!baseDir.exists()) {
             log.error("Path not found: {}", baseDir.getAbsolutePath());
             return allFlights;
         }
 
         List<File> eventFiles = findAllEventFiles(baseDir);
-
         if (eventFiles.isEmpty()) {
             log.warn("No .events files found in: {}", baseDir.getAbsolutePath());
             return allFlights;
@@ -43,13 +37,28 @@ public class FileEventLoader implements EventLoader {
                 while ((line = reader.readLine()) != null) {
                     try {
                         JsonObject event = JsonParser.parseString(line).getAsJsonObject();
+
+                        String ts = event.get("ts").getAsString();   // ts del evento
+                        String ss = event.get("ss").getAsString();   // ss del evento
                         JsonObject data = event.getAsJsonObject("data");
-                        Flight flight = gson.fromJson(data, Flight.class);
-                        if (flight != null && flight.getFlight_date() != null) {
-                            allFlights.add(flight);
-                        } else {
-                            log.warn("Skipping invalid flight: {}", data);
-                        }
+
+                        // Crear Flight con constructor completo
+                        Flight flight = new Flight(
+                                data.get("flight_date").getAsString(),
+                                data.get("flight_status").getAsString(),
+                                data.get("departure_airport").getAsString(),
+                                data.get("arrival_airport").getAsString(),
+                                data.get("airline").getAsString(),
+                                data.has("flightNumber") ? data.get("flightNumber").getAsString() : "",
+                                data.has("id") ? data.get("id").getAsInt() : 0,
+                                data.has("departure_delay") && !data.get("departure_delay").isJsonNull()
+                                        ? data.get("departure_delay").getAsInt() : 0,
+                                ts,
+                                ss
+                        );
+
+                        allFlights.add(flight);
+
                     } catch (Exception e) {
                         log.error("Error parsing line in {}: {}", file.getName(), e.getMessage());
                     }

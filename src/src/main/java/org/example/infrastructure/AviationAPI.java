@@ -46,6 +46,7 @@ public class AviationAPI extends AviationProvider {
                 delay = departure.optInt("delay");
             }
 
+            // CAMBIO: ahora usamos el constructor completo que incluye ts y ss
             Flight flight = new Flight(
                     flightJson.optString("flight_date", "N/A"),
                     flightJson.optString("flight_status", "N/A"),
@@ -60,7 +61,9 @@ public class AviationAPI extends AviationProvider {
                             ? flightJson.getJSONObject("flight").optString("number", "N/A")
                             : "N/A",
                     i + 1,
-                    delay
+                    delay,
+                    flightJson.optString("ts", "N/A"),   // NUEVO: ts del evento
+                    flightJson.optString("ss", "AviationStackFeeder") // NUEVO: ss del evento
             );
 
             flights.add(flight);

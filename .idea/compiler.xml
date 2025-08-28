@@ -9,6 +9,7 @@
         <module name="graficos" />
         <module name="owmapi" />
         <module name="AviationStackFeeder" />
+        <module name="OpenWeatherMapFeeder" />
         <module name="business-unit" />
         <module name="eventStoreBuilder" />
       </profile>
