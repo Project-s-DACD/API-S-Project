@@ -73,7 +73,7 @@ public class DatamartStore implements AutoCloseable {
             ps.setInt(3, f.getId());
             ps.setString(4, f.getFlight_date());
             ps.setString(5, f.getFlight_status());
-            ps.setString(6, "");            // flightNumber vacío por ahora, si lo quieres agregar, modifica Flight
+            ps.setString(6, "");
             ps.setString(7, f.getDeparture_airport());
             ps.setString(8, f.getArrival_airport());
             ps.setString(9, f.getAirline());
@@ -85,7 +85,7 @@ public class DatamartStore implements AutoCloseable {
     public void insertFlights(List<Flight> flights) throws SQLException {
         for (Flight f : flights) {
             if (f != null && f.getFlight_date() != null) {
-                insertFlight(f);  // solo Flight
+                insertFlight(f);
             }
         }
     }
