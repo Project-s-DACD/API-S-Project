@@ -48,3 +48,12 @@
 {"ts":"2025-08-28T12:49:38.418178900Z","ss":"feeder-OWM","city":"Gando","temperature":26.83,"humidity":57,"visibility":10000,"windSpeed":11.32,"precipitation":0.0,"cloudiness":40}
 {"ts":"2025-08-28T13:09:38.337766300Z","ss":"feeder-OWM","city":"Gando","temperature":26.83,"humidity":57,"visibility":10000,"windSpeed":11.32,"precipitation":0.0,"cloudiness":40}
 {"ts":"2025-08-28T13:42:31.020849900Z","ss":"feeder-OWM","city":"Gando","temperature":26.83,"humidity":57,"visibility":10000,"windSpeed":10.8,"precipitation":0.0,"cloudiness":20}
+{"ts":"2025-08-28T14:02:02.764511800Z","ss":"feeder-OWM","city":"Gando","temperature":26.83,"humidity":57,"visibility":10000,"windSpeed":10.8,"precipitation":0.0,"cloudiness":20}
+{"ts":"2025-08-28T14:22:02.416050800Z","ss":"feeder-OWM","city":"Gando","temperature":28.05,"humidity":51,"visibility":10000,"windSpeed":9.77,"precipitation":0.0,"cloudiness":20}
+{"ts":"2025-08-28T16:11:18.656825200Z","ss":"feeder-OWM","city":"Gando","temperature":27.05,"humidity":61,"visibility":10000,"windSpeed":11.83,"precipitation":0.0,"cloudiness":20}
+{"ts":"2025-08-28T16:11:18.793750700Z","ss":"feeder-OWM","city":"Gando","temperature":27.05,"humidity":61,"visibility":10000,"windSpeed":11.83,"precipitation":0.0,"cloudiness":20}
+{"ts":"2025-08-28T16:11:18.890216700Z","ss":"feeder-OWM","city":"Gando","temperature":27.05,"humidity":61,"visibility":10000,"windSpeed":11.83,"precipitation":0.0,"cloudiness":20}
+{"ts":"2025-08-28T16:11:18.975241Z","ss":"feeder-OWM","city":"Gando","temperature":27.05,"humidity":61,"visibility":10000,"windSpeed":11.83,"precipitation":0.0,"cloudiness":20}
+{"ts":"2025-08-28T16:11:19.052977700Z","ss":"feeder-OWM","city":"Gando","temperature":27.05,"humidity":61,"visibility":10000,"windSpeed":11.83,"precipitation":0.0,"cloudiness":20}
+{"ts":"2025-08-28T16:21:53.879726400Z","ss":"feeder-OWM","city":"Gando","temperature":27.05,"humidity":61,"visibility":10000,"windSpeed":11.32,"precipitation":0.0,"cloudiness":20}
+{"ts":"2025-08-28T16:41:53.614421500Z","ss":"feeder-OWM","city":"Gando","temperature":27.05,"humidity":61,"visibility":10000,"windSpeed":11.32,"precipitation":0.0,"cloudiness":20}
