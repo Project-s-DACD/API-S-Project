@@ -62,8 +62,8 @@ public class AviationAPI extends AviationProvider {
                             : "N/A",
                     i + 1,
                     delay,
-                    flightJson.optString("ts", "N/A"),
-                    flightJson.optString("ss", "AviationStackFeeder")
+                    null,
+                    null
             );
 
             flights.add(flight);

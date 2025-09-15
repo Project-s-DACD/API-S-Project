@@ -5,21 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1bdcfcd7-dc1f-4138-836d-5a4d5705597d" name="Changes" comment="Ready to build interface.">
+      <change afterPath="$PROJECT_DIR$/business-unit/src/main/java/org/example/serving/VisualInterfaceGui.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/main/java/org/example/OWM/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/OpenWeatherMapFeeder/main/java/org/example/OWM/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/main/java/org/example/OWM/infrastructure/adapter/ActiveMqWeatherStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/OpenWeatherMapFeeder/main/java/org/example/OWM/infrastructure/adapter/ActiveMqWeatherStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/target/classes/org/example/OWM/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/OpenWeatherMapFeeder/target/classes/org/example/OWM/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenWeatherMapFeeder/target/classes/org/example/OWM/infrastructure/adapter/ActiveMqWeatherStorage.class" beforeDir="false" afterPath="$PROJECT_DIR$/OpenWeatherMapFeeder/target/classes/org/example/OWM/infrastructure/adapter/ActiveMqWeatherStorage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/business-unit/datamart.db" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/datamart.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/business-unit/graficos/generarGraficos.R" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/graficos/generarGraficos.R" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/business-unit/graficos/grafico_test.png" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/graficos/grafico_test.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/business-unit/graficos/grafico_test2.png" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/graficos/grafico_test2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventStoreBuilder/src/main/java/org/example/adapters/EventBrokerConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/eventStoreBuilder/src/main/java/org/example/adapters/EventBrokerConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/src/main/java/org/example/BusinessMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/src/main/java/org/example/BusinessMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/src/main/java/org/example/serving/BusinessCli.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/src/main/java/org/example/serving/BusinessCli.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/target/classes/org/example/BusinessMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/target/classes/org/example/BusinessMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/target/classes/org/example/serving/BusinessCli.class" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/target/classes/org/example/serving/BusinessCli.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventStoreBuilder/target/classes/org/example/adapters/EventBrokerConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/eventStoreBuilder/target/classes/org/example/adapters/EventBrokerConnection.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventstore/Weather/feeder-OWM/20250828.events" beforeDir="false" afterPath="$PROJECT_DIR$/eventstore/Weather/feeder-OWM/20250828.events" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventstore/prediction.Flight/AviationStackFeeder/20250828.events" beforeDir="false" afterPath="$PROJECT_DIR$/eventstore/prediction.Flight/AviationStackFeeder/20250828.events" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/main/java/org/example/domain/Flight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/org/example/domain/Flight.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/src/main/java/org/example/infrastructure/AviationAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/org/example/infrastructure/AviationAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/AviationAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/AviationAPI.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +39,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="developer-Agus" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -92,10 +94,10 @@
     "last_opened_file_path": "C:/Users/agust/OneDrive/Escritorio/Uni/2º año/DAPC/Api´s project",
     "node.js.selected.package.tslint": "(autodetect)",
     "onboarding.tips.debug.path": "C:/Users/agust/OneDrive/Escritorio/Uni/2º año/DAPC/Api´s project/business-unit/graficos/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "configurable.group.build"
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
 }]]></component>
   <component name="RecentsManager">

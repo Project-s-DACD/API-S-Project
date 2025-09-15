@@ -33,7 +33,7 @@ The system is structured around three key modules:
 - Publishes each flight as an event to the ActiveMQ broker (`prediction.Flight`).
 
 ### 🛬 `SubscriberMain`
-- Subscribes to the `prediction.Flight` topic.
+- Subscribes to the `prediction.Flight` and `weather` topic.
 - Stores received events into `.events` files under `eventstore/`.
 - Groups events by day and source, allowing reprocessing or audits.
 
@@ -51,7 +51,7 @@ The system is structured around three key modules:
 
 ![CanariaAirFlow - WordCloud](business-unit/graficos/grafico_test2.png)
 ![CanariaAirFlow - bars](business-unit/graficos/grafico_test.png)
-
+![Weather - bars](business-unit/graficos/grafico_weather.png)
 ## 📄 Authors
 
 - Agustín Darío Casebonne

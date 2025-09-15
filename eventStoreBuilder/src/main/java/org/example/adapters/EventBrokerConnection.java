@@ -21,11 +21,9 @@ public class EventBrokerConnection {
         }
     }
 
-
     public Session getSession() {
         return session;
     }
-
 
     public void close() {
         try {
