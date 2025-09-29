@@ -14,10 +14,8 @@ generarGraficos <- function() {
 
   if (!dir.exists(ruta_out)) dir.create(ruta_out, recursive = TRUE)
 
-  # Connect to the database
   con <- dbConnect(RSQLite::SQLite(), ruta_db)
 
-  # --- Flights charts ---
   flights <- dbGetQuery(con, "SELECT * FROM flights")
   names(flights) <- make.names(names(flights), unique = TRUE)
 
@@ -25,7 +23,6 @@ generarGraficos <- function() {
   message("Column names:")
   print(names(flights))
 
-  # Wordcloud of departure airports
   top_airports <- flights %>%
     group_by(departure_airport) %>%
     summarise(cantidad = n()) %>%
@@ -47,7 +44,7 @@ generarGraficos <- function() {
     message("No departure airport data available for grafico_test2.png")
   }
 
-  # Bar chart by airline
+
   if ("airline" %in% names(flights)) {
     top_airline <- flights %>%
       group_by(airline) %>%
@@ -70,7 +67,7 @@ generarGraficos <- function() {
     }
   }
 
-  # --- Last weather chart ---
+
   weather <- dbGetQuery(con, "SELECT * FROM weather")
   names(weather) <- make.names(names(weather), unique = TRUE)
 
@@ -82,7 +79,7 @@ generarGraficos <- function() {
     message("Latest weather record:")
     print(last_weather)
 
-    # Pivot for bar chart
+
     weather_long <- last_weather %>%
       pivot_longer(
         cols = c(temperature, humidity, visibility, windSpeed, precipitation, cloudiness),
@@ -92,7 +89,7 @@ generarGraficos <- function() {
 
     png(file.path(ruta_out, "grafico_weather.png"), width = 800, height = 600)
     print(
-      ggplot(weather_long, aes(x = metric, y = value, fill = metric)) +
+      ggplot(weather_long, aes(x = metric, y = value)) +
         geom_bar(stat = "identity") +
         labs(title = paste("Latest weather metrics"),
              x = "Metric",
@@ -107,7 +104,7 @@ generarGraficos <- function() {
     message("No weather data available to plot.")
   }
 
-    # --- Nuevo grafico: Delay vs Wind Speed ---
+
     library(data.table)
 
     flights_dt <- as.data.table(flights)
@@ -132,23 +129,24 @@ generarGraficos <- function() {
 
     print(delay)
 
-    if (nrow(delay) > 0) {
-      png(file.path(ruta_out, "grafico_weathervsdelay.png"), width = 800, height = 600)
-      print(
-        ggplot(delay, aes(x = windSpeed_round, y = delay_avg, fill = windSpeed_round)) +
-          geom_bar(stat = "identity") +
-          labs(title = "Delay related to Wind Speed",
-               x = "Wind Speed (rounded)",
-               y = "Average Departure Delay (minutes)") +
-          theme_minimal() +
-          theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-          scale_fill_gradient(low = "lightblue", high = "darkblue")
-      )
-      dev.off()
-      message("Latest weather chart generated: grafico_weathervsdelay.png")
-    } else {
-      message("No data available to plot Delay vs Wind.")
-    }
+  if (nrow(delay) > 0) {
+    png(file.path(ruta_out, "grafico_weathervsdelay.png"), width = 800, height = 600)
+    print(
+      ggplot(delay, aes(x = windSpeed_round, y = delay_avg, fill = windSpeed_round)) +
+        geom_bar(stat = "identity") +
+        labs(title = "Delay related to Wind Speed",
+             x = "Wind Speed",
+             y = "Average Departure Delay") +
+        theme_minimal() +
+        theme(axis.text.x = element_text(angle = 45, hjust = 1),
+              legend.position = "none") +   # 👈 esto quita la leyenda
+        scale_fill_gradient(low = "lightblue", high = "darkblue")
+    )
+    dev.off()
+    message("Latest weather chart generated: grafico_weathervsdelay.png")
+  } else {
+    message("No data available to plot Delay vs Wind.")
+  }
 
 
   dbDisconnect(con)

@@ -15,7 +15,6 @@ To analyze the origin of tourists arriving in Gran Canaria by air, and study how
 
 ## 🧠 Design Principles
 
-- Clean modular architecture
 - Event-driven design with ActiveMQ
 - Clear separation of responsibilities (fetching, storage, analysis)
 - Weekly replayable data via `.events` files
@@ -28,14 +27,19 @@ To analyze the origin of tourists arriving in Gran Canaria by air, and study how
 
 The system is structured around three key modules:
 
-### ✈️ `MainConMiApiKey`
+### ✈️ `AviationMain`
 - Fetches flight data weekly from the [AviationStack API](https://aviationstack.com).
 - Publishes each flight as an event to the ActiveMQ broker (`prediction.Flight`).
 
-### 🛬 `SubscriberMain`
+### 🛬 `eventStoreBuilder`
 - Subscribes to the `prediction.Flight` and `weather` topic.
 - Stores received events into `.events` files under `eventstore/`.
 - Groups events by day and source, allowing reprocessing or audits.
+
+### 🌤️ `WeatherMain`
+- Fetches weather data weekly from the [OpenWeatherMap API](https://openweathermap.org/api).
+- Publishes weather events to the ActiveMQ broker (`weather`).
+- Stores weather data in `.events` files under `eventstore/`.
 
 ### 📊 `BusinessMain`
 - Subscribes to the topic and reads from `.events`.
@@ -46,7 +50,10 @@ The system is structured around three key modules:
 ---
 
 ### UML Class Diagrams
-
+![ulm](diagrama1.png)
+![ulm](diagrama2.png)
+![ulm](diagrama3.png)
+![ulm](diagrama4.png)
 ### 📊Visual Samples
 
 ![CanariaAirFlow - WordCloud](business-unit/graficos/grafico_test2.png)

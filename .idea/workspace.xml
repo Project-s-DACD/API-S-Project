@@ -4,29 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bdcfcd7-dc1f-4138-836d-5a4d5705597d" name="Changes" comment="Ready to build interface.">
-      <change afterPath="$PROJECT_DIR$/business-unit/src/main/java/org/example/serving/VisualInterfaceGui.java" afterDir="false" />
+    <list default="true" id="1bdcfcd7-dc1f-4138-836d-5a4d5705597d" name="Changes" comment="Cli and Gui running perfectly">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/business-unit/datamart.db" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/datamart.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/business-unit/graficos/generarGraficos.R" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/graficos/generarGraficos.R" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/business-unit/graficos/grafico_test.png" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/graficos/grafico_test.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/business-unit/graficos/grafico_test2.png" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/graficos/grafico_test2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/business-unit/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/graficos/grafico_weather.png" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/graficos/grafico_weather.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/graficos/grafico_weathervsdelay.png" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/graficos/grafico_weathervsdelay.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/business-unit/src/main/java/org/example/BusinessMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/src/main/java/org/example/BusinessMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/business-unit/src/main/java/org/example/serving/BusinessCli.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/src/main/java/org/example/serving/BusinessCli.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/src/main/java/org/example/batch/EventLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/src/main/java/org/example/batch/FileEventLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/src/main/java/org/example/batch/FileEventLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/src/main/java/org/example/serving/BusinessCli.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/src/main/java/org/example/serving/VisualInterfaceGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/src/main/java/org/example/serving/VisualInterfaceGui.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/business-unit/target/classes/org/example/BusinessMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/target/classes/org/example/BusinessMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/business-unit/target/classes/org/example/serving/BusinessCli.class" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/target/classes/org/example/serving/BusinessCli.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/target/classes/org/example/batch/EventLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/target/classes/org/example/serving/BusinessCli.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-unit/target/classes/org/example/serving/VisualInterfaceGui.class" beforeDir="false" afterPath="$PROJECT_DIR$/business-unit/target/classes/org/example/serving/VisualInterfaceGui.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventStoreBuilder/target/classes/org/example/adapters/EventBrokerConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/eventStoreBuilder/target/classes/org/example/adapters/EventBrokerConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventstore/Weather/feeder-OWM/20250828.events" beforeDir="false" afterPath="$PROJECT_DIR$/eventstore/Weather/feeder-OWM/20250828.events" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventstore/prediction.Flight/AviationStackFeeder/20250828.events" beforeDir="false" afterPath="$PROJECT_DIR$/eventstore/prediction.Flight/AviationStackFeeder/20250828.events" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/main/java/org/example/infrastructure/AviationAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/org/example/infrastructure/AviationAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/AviationAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/target/classes/org/example/infrastructure/AviationAPI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventstore/Weather/feeder-OWM/20250915.events" beforeDir="false" afterPath="$PROJECT_DIR$/eventstore/Weather/feeder-OWM/20250915.events" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventstore/prediction.Flight/AviationStackFeeder/20250915.events" beforeDir="false" afterPath="$PROJECT_DIR$/eventstore/prediction.Flight/AviationStackFeeder/20250915.events" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/org/example/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/org/example/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/main/java/org/example/domain/Flight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/main/java/org/example/domain/Flight.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageOptionsProvider">
+    <option name="myAddOrReplace" value="0" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -78,6 +91,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.AviationAPI.executor": "Run",
+    "Application.AviationMain.executor": "Run",
     "Application.BusinessMain.executor": "Run",
     "Application.EuroStatAPI.executor": "Run",
     "Application.EventMain.executor": "Run",
@@ -88,7 +102,7 @@
     "Application.WeatherMain.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "developer-Agus",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/agust/OneDrive/Escritorio/Uni/2º año/DAPC/Api´s project",
@@ -113,6 +127,16 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.BusinessMain">
+    <configuration name="AviationMain" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-23" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+      <module name="AviationStackFeeder" />
+      <option name="PROGRAM_PARAMETERS" value="http://api.aviationstack.com/v1/flights?access_key=9d9efea6c0c3f692ff8545bd0d610f13&amp;arr_icao=GCLP&amp;flight_status=landed " />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BusinessMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.BusinessMain" />
       <module name="business-unit" />
@@ -141,16 +165,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainConMiApiKey" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-23" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
-      <module name="AviationStackFeeder" />
-      <option name="PROGRAM_PARAMETERS" value="http://api.aviationstack.com/v1/flights?access_key=9d9efea6c0c3f692ff8545bd0d610f13&amp;arr_icao=GCLP&amp;flight_status=landed " />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="WeatherMain" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.example.OWM.Main" />
       <module name="OpenWeatherMapFeeder" />
@@ -160,7 +174,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.MainConMiApiKey" />
+      <item itemvalue="Application.AviationMain" />
       <item itemvalue="Application.WeatherMain" />
       <item itemvalue="Application.BusinessMain" />
       <item itemvalue="Application.EventMain" />
@@ -442,7 +456,8 @@
     <MESSAGE value="code Solved pushProblem" />
     <MESSAGE value="Grammar modifications" />
     <MESSAGE value="Ready to build interface." />
-    <option name="LAST_COMMIT_MESSAGE" value="Ready to build interface." />
+    <MESSAGE value="Cli and Gui running perfectly" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cli and Gui running perfectly" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -454,5 +469,11 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Api_s_project$WeatherMain.ic" NAME="WeatherMain Coverage Results" MODIFIED="1759177408912" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/Api_s_project$EventMain.ic" NAME="EventMain Coverage Results" MODIFIED="1759136249135" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>org.example.subscriber.*</FILTER>
+    </SUITE>
   </component>
 </project>

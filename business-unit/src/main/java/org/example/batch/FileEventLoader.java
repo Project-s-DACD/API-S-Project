@@ -38,11 +38,10 @@ public class FileEventLoader {
                     try {
                         JsonObject event = JsonParser.parseString(line).getAsJsonObject();
 
-                        String ts = event.get("ts").getAsString();   // ts del evento
-                        String ss = event.get("ss").getAsString();   // ss del evento
+                        String ts = event.get("ts").getAsString();
+                        String ss = event.get("ss").getAsString();
                         JsonObject data = event.getAsJsonObject("data");
 
-                        // Crear Flight con constructor completo
                         Flight flight = new Flight(
                                 data.get("flight_date").getAsString(),
                                 data.get("flight_status").getAsString(),

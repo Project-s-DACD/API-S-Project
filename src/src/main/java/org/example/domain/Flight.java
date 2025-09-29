@@ -1,19 +1,16 @@
 package org.example.domain;
 
 public class Flight {
-    private String flight_date;
-    private String flight_status;
-    private String departure_airport;
-    private String arrival_airport;
-    private String airline;
-    private String flightNumber;
-    private int id;
-    private Integer departure_delay;
-    private String ts;
-    private String ss;
-
-    public Flight() {
-    }
+    private final String flight_date;
+    private final String flight_status;
+    private final String departure_airport;
+    private final String arrival_airport;
+    private final String airline;
+    private final String flightNumber;
+    private final int id;
+    private final Integer departure_delay;
+    private final String ts;
+    private final String ss;
 
 
     public Flight(String flight_date, String flight_status, String departure_airport,

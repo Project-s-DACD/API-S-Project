@@ -24,8 +24,6 @@ public class Controller {
     public void run() {
         try {
             List<Flight> flights = api.fetchDataFromApi().flights();
-            log.info("Flights ready to insert: {}", flights.size());
-
             for (Flight flight : flights) {
                 publisher.publishEventInBroker(flight);
             }

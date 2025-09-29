@@ -4,11 +4,13 @@ import org.example.batch.FileEventLoader;
 import org.example.batch.FileWeatherLoader;
 import org.example.domain.Flight;
 import org.example.OWM.domain.LocationWeather;
-import org.example.serving.BusinessCli;
 import org.example.serving.DatamartStore;
+import org.example.serving.VisualInterfaceGui;
 import org.example.speed.BusinessSubscriber;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.swing.*;
 import java.io.File;
 import java.sql.SQLException;
 import java.util.List;
@@ -54,8 +56,8 @@ public class BusinessMain {
             BusinessSubscriber subscriber = new BusinessSubscriber(datamart);
             subscriber.startRealTimeSubscriber();
 
+            SwingUtilities.invokeLater(VisualInterfaceGui::new);
 
-            new BusinessCli().startMenuCli();
             logger.info("Real-time subscription active...");
             Thread.sleep(Long.MAX_VALUE);
 
